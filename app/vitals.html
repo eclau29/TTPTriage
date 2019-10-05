@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="index.css">
+
+  <title>Vitals</title>
+</head>
+
+<body>
+  <h1 class="text-center">Vitals</h1>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <form class="text-center" action="severity.do" method="POST">
+    <div class="form-check mh-100" id="male">
+      <input class="form-check-input" type="radio" name="gender" value="male" checked>
+      <label class="form-check-label" for="exampleRadios1">
+        ♂ male
+      </label>
+    </div>
+    <div class="form-check mh-100" id="female">
+      <input class="form-check-input" type="radio" name="gender" value="female">
+      <label class="form-check-label" for="exampleRadios2">
+        ♀ female
+      </label>
+    </div>
+    <hr>
+  </form>
+
+  <form class="text-center" action="" method="POST">
+    <div class="form-check mh-100" id="adult">
+      <input class="form-check-input" type="radio" name="age" value="adult">
+      <label class="form-check-label" for="exampleRadios1">
+        👱🏾‍♂ adult
+      </label>
+    </div>
+
+    <div class="form-check mh-100" id="child">
+      <input class="form-check-input" type="radio" name="age" value="child">
+      <label class="form-check-label" for="exampleRadios1">
+       👧🏼 child
+      </label>
+    </div>
+
+    <div class="form-check mh-100" id="infant">
+      <input class="form-check-input" type="radio" name="age" value="infant">
+      <label class="form-check-label" for="exampleRadios1">
+       👶🏻 infant
+      </label>
+    </div>
+
+  </form>
+
+  <!-- ====================stats======================-->
+
+  <div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping">💓Pulse</span>
+    </div>
+    <input type="number" class="form-control" placeholder="Beats Per Minute" aria-label="Beats Per Minute"
+      aria-describedby="addon-wrapping">
+  </div>
+
+  <div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping">Systolic BP</span>
+    </div>
+    <input type="number" class="form-control" placeholder="mmHg" aria-label="mmHg" aria-describedby="addon-wrapping">
+  </div>
+
+  <div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping">Diastolic BP</span>
+    </div>
+    <input type="number" class="form-control" placeholder="mmHg" aria-label="mmHg" aria-describedby="addon-wrapping">
+  </div>
+
+  <div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping">Respiratory Rate</span>
+    </div>
+    <input type="number" class="form-control" placeholder="Breaths Per Minute" aria-label="Breaths Per Minute"
+      aria-describedby="addon-wrapping">
+  </div>
+
+  <!-- ============================= Name / Age / DOB================================== -->
+  <hr>
+
+  <div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping">First Name</span>
+    </div>
+    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="addon-wrapping">
+  </div>
+
+  <div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping">Last Name</span>
+    </div>
+    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="addon-wrapping">
+  </div>
+
+  <div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping">Date of Birth</span>
+    </div>
+    <input type="date" class="form-control" placeholder="12/03/1970" aria-label="" aria-describedby="addon-wrapping">
+  </div>
+
+  <hr>
+  <h2 class="text-center">TRAUMA</h2>
+  <img src="./burnChart.jpg" class="rounded mx-auto d-block" alt="...">
+
+  <a href=""><button type="button" class="btn btn-primary btn-lg w-100 p-3 mt-n1"
+      onclick="">Submit</button></a>
+
+  <!-- <script src="submit.js"></script> -->
+</body>
+
+</html>

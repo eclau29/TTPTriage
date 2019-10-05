@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="vitals.css">
+  <title>VITALS</title>
+</head>
+
+<body>
+  <input type="radio" name="gender" value="male">♂ Male<br>
+  <input type="radio" name="gender" value="female">♀ Female<br>
+  <hr />
+  <input type="radio" name="age" value="adult">Adult<br>
+  <input type="radio" name="age" value="child">Child<br>
+  <input type="radio" name="age" value="infant">Infant<br>
+
+  <hr />
+
+  <form action="/my-handling-form-page" method="post">
+    <div>
+      <label for="pulse">Pulse💓</label>
+      <input type="number" id="pulse">bpm
+    </div>
+    <div>
+      <label for="sbp">Systolic BP</label>
+      <input type="number" id="sbp">mmHg
+    </div>
+    <div>
+      <label for="dbp">Diastolic BP</label>
+      <input type="number" id="dbp">mmHg
+    </div>
+    <div>
+      <label for="resp">Respiratory Rate💨</label>
+      <input type="number" id="resp"></input>/min
+    </div>
+    <div>
+      <label for="spo2">SpO2</label>
+      <input type="number" id="spo2"></input>%
+    </div>
+    <hr>
+    <div>
+      <label for="fName">First Name</label>
+      <input type="text" id="fName"></input>
+    </div>
+    <div>
+      <label for="lName">Last Name</label>
+      <input type="text" id="lName"></input>
+    </div>
+    <div>
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob"></input>
+    </div>
+    <hr>
+
+    <img id="silhouette" src="./silhouette.png" alt="" srcset="">
+    <hr>
+
+    <form action="./" method="post">
+      <button type="button" class="block" value="Submit">Submit</button>
+    </form>
+    <form action="./buttons.html">
+      <button type="button" class="block" value="Back">Back</button>
+    </form>
+</body>
+
+</html>

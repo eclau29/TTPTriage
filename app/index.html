@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="index.css">
+
+  <title>Severity!</title>
+</head>
+
+<body>
+  <h1 class="text-center">Severity</h1>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <form class="text-center" action="severity.do" method="POST" onclick="displayVitals()">
+    <div class="form-check mh-100" id="red">
+      <input class="form-check-input" type="radio" name="vitals" value="red" checked">
+      <label class="form-check-label" for="exampleRadios1">
+        RED
+      </label>
+    </div>
+    <div class="form-check mh-100" id="yellow">
+      <input class="form-check-input" type="radio" name="vitals" value="yellow">
+      <label class="form-check-label" for="exampleRadios2">
+        YELLOW
+      </label>
+    </div>
+    <div class="form-check mh-100" id="green">
+      <input class="form-check-input" type="radio" name="vitals" value="green" checked>
+      <label class="form-check-label" for="exampleRadios1">
+        GREEN
+      </label>
+    </div>
+    <div class="form-check mh-100" id="gray">
+      <input class="form-check-input" type="radio" name="vitals" value="gray" checked>
+      <label class="form-check-label" for="exampleRadios1">
+        GRAY
+      </label>
+    </div>
+    <div class="form-check mh-100" id="black">
+      <input class="form-check-input" type="radio" name="vitals" value="black" checked>
+      <label class="form-check-label" for="exampleRadios1">
+        BLACK
+      </label>
+    </div>
+    <a href="vitals.html">
+      <button type="button" class="btn btn-primary btn-lg w-50 p-3 mt-n1">Scan & Submit</button>
+    </a>
+  </form>
+  <script src="submit.js"></script>
+</body>
+
+</html>

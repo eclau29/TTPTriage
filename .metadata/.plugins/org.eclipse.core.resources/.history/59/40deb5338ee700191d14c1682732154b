@@ -1,0 +1,9 @@
+package ttptriage.entities;
+
+public enum Severity {
+	    GREEN,
+	    YELLOW,
+	    RED,
+	    BLACK,
+	    GRAY
+}

@@ -1,0 +1,5 @@
+package ttptriage.entities;
+
+public enum Severity {
+
+}

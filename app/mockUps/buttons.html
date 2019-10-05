@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="buttons.css">
+  <title>TTPTriage</title>
+</head>
+
+<body>
+
+  <form action="setSeverity" method="POST">
+    <div>
+      <label for="severity" class="block"><input type="radio" name="severity" id="red" value="red">RED</label>
+    </div>
+
+    <div>
+      <input type="radio" name="severity" class="block" id="yellow" value="yellow">
+      <label for="severity">YELLOW</label>
+    </div>
+    <div>
+      <input type="radio" name="severity" class="block" id="green" value="green">
+      <label for="severity">GREEN</label>
+    </div>
+    <div>
+      <input type="radio" name="severity" class="block" id="gray" value="gray">GRAY<br>
+      <label for="severity">GRAY</label>
+    </div>
+    <div>
+      <input type="radio" name="severity" class="block" id="black" value="black">BLACK<br>
+      <label for="severity">BLACK</label>
+    </div>
+  </form>
+  <!-- <a href="vitals.html"><button type="button" class="block" id="red" onclick="">RED</button></a>
+  <a href="vitals.html"><button type="button" class="block" id="yellow" onclick="">YELLOW</button></a>
+  <a href="vitals.html"><button type="button" class="block" id="green" onclick="">GREEN</button></a>
+  <a href="vitals.html"><button type="button" class="block" id="black" onclick="">BLACK</button></a> -->
+</body>
+
+</html>
