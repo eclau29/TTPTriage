@@ -12,5 +12,6 @@
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/TTPTriageJPA" type="4"/>
 </workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1570292520533_2" label="Window Working Set" name="Aggregate for window 1570292520532"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1571881251058_4" label="Window Working Set" name="Aggregate for window 1571881251058"/>
 <mruList name="TTPTriage"/>
 </workingSetManager>
