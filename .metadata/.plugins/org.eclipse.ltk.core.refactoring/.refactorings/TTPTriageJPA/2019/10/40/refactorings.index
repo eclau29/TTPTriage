@@ -7,3 +7,9 @@
 1570296257364	Delete element
 1570296298426	Delete element
 1570297176090	Rename package 'TTPTriageJPA'
+1570300769706	Rename compilation unit 'Person.java'
+1570300791801	Rename type 'PersonalInfo'
+1570300806987	Rename type 'Symptoms'
+1570300813800	Rename type 'Vitals'
+1570300842577	Move file
+1570300890885	Delete element
