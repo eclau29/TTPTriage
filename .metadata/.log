@@ -2256,3 +2256,18 @@ java.util.concurrent.TimeoutException
 	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:160)
 	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:132)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-25 17:48:05.660
+!MESSAGE Preparing classpath changed notification TTPTriage
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-25 17:48:05.661
+!MESSAGE exists = false open = true => deleted = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-25 17:48:05.663
+!MESSAGE buffering callback sts4.classpath.cfXEJLGe TTPTriage true 0
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-25 17:48:05.665
+!MESSAGE executing callback sts4.classpath.cfXEJLGe 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-25 17:48:05.698
+!MESSAGE executing callback sts4.classpath.cfXEJLGe SUCCESS [done]
