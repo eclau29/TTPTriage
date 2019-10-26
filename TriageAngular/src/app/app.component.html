@@ -3,12 +3,16 @@
     {{ title }}
   </h1>
   <nav>
-    <a routerLink="/vitals">Start Triage</a><br>
-    <a routerLink="/severity">Severity</a>
+    <a routerLink="/severity">Severity</a><br>
+    <a routerLink="/vitals">Vitals</a><br>
+    <a routerLink="/symptoms">Symptoms</a>
   </nav>
 </div>
 
 <router-outlet></router-outlet>
+
 <footer>
-  <p  class="text-xs-center">© Copyright 2019. All rights reserved.</p>
+  <div class="container">
+    <p  class="text-xs-center">© Copyright 2019. All rights reserved.</p>
+  </div>
 </footer>
