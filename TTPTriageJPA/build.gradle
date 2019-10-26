@@ -29,6 +29,11 @@ repositories {
 */
 ext {
   hibernateVersion = "5.4.2.Final"
+  junit5Version = "5.4.2"
+}
+
+test {
+    useJUnitPlatform()
 }
 
 // define project specific dependencies
@@ -37,5 +42,6 @@ dependencies {
   compile "log4j:log4j:1.2.17"
   compile "org.hibernate:hibernate-core:$hibernateVersion"
   compile "org.hibernate:hibernate-c3p0:$hibernateVersion"
+  testImplementation("org.junit.jupiter:junit-jupiter:$junit5Version")
   compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.7'
 }
