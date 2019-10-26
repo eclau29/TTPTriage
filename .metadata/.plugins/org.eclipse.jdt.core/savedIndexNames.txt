@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.131+/Users/Xian/Documents/TTPTriage/TTPTriage/.metadata/.plugins/org.eclipse.jdt.core
 3960273925.index
 683559593.index
@@ -41,3 +42,43 @@ INDEX VERSION 1.131+/Users/Xian/Documents/TTPTriage/TTPTriage/.metadata/.plugins
 3456298696.index
 4046073632.index
 454247607.index
+=======
+INDEX VERSION 1.131+/Users/emilylau/Documents/TTPTriage/.metadata/.plugins/org.eclipse.jdt.core
+4241635049.index
+3509643341.index
+683559593.index
+2707265503.index
+2083548955.index
+494088258.index
+1074338372.index
+192313480.index
+3692466086.index
+704226008.index
+2539131224.index
+4294506336.index
+3001503235.index
+2653887023.index
+496633185.index
+3526833388.index
+2650497761.index
+541192412.index
+1597107759.index
+544071507.index
+2327338989.index
+3936501132.index
+3427643011.index
+219321066.index
+1597231182.index
+1000355873.index
+2284323291.index
+490545567.index
+2188117527.index
+2040367301.index
+3998946171.index
+1564006480.index
+383783484.index
+2591603135.index
+2984912351.index
+1388115946.index
+3231491785.index
+>>>>>>> 4caeb10a34e3ce22a115816c2a1a020269ef8462

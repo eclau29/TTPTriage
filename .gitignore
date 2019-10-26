@@ -1,5 +1,6 @@
 bin
 .DS_Store
+<<<<<<< HEAD
 
 ### Eclipse files
 
@@ -56,3 +57,6 @@ local.properties
 
 # IntelliJ
 out/
+=======
+/.metadata/
+>>>>>>> 4caeb10a34e3ce22a115816c2a1a020269ef8462
