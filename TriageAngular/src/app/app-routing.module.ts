@@ -1,11 +1,12 @@
+import { SeverityComponent } from './severity/severity.component';
 import { VitalsComponent } from './vitals/vitals.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: 'vitals', component: VitalsComponent}
+  { path: 'vitals', component: VitalsComponent},
+  { path: 'severity', component: SeverityComponent}
 ];
 
 @NgModule({
