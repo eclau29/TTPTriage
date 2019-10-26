@@ -14,27 +14,34 @@ import javax.persistence.OneToOne;
 @Entity
 public class Person {
 	@Id
-	private String id;
+	private Integer id;
+	
 	private String location;
+	
 	@Column(name = "vitals_id")
 	private Integer vitalsId;
+	
 	@OneToOne(mappedBy = "person")
 	@JoinColumn(name = "personal_info_id")
 	private PersonalInfo personalInfo;
+	
 	@Column(name = "gps_location")
 	private String gpsLocation;
+	
 	@Column(name = "initial_eval_time")
 	private Timestamp initialEvalTime;
 	private String gender;
+	
 	@OneToMany(mappedBy = "person")
 	private List<Vitals> vitalsList;
+	
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Symptoms> symptomsList;
 
 	public Person() {
 	}
 
-	public Person(String id, String location, Integer vitalsId, String gpsLocation, Timestamp initialEvalTime,
+	public Person(Integer id, String location, Integer vitalsId, String gpsLocation, Timestamp initialEvalTime,
 			String gender, PersonalInfo personalInfo) {
 		this.id = id;
 		this.location = location;
@@ -45,11 +52,11 @@ public class Person {
 		this.personalInfo = personalInfo;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
