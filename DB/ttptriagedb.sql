@@ -21,9 +21,9 @@ USE `ttptriage` ;
 DROP TABLE IF EXISTS `person` ;
 
 CREATE TABLE IF NOT EXISTS `person` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `location` VARCHAR(25) NULL DEFAULT 'Ground Zero',
-  `gps_location` VARCHAR(100) NULL,
+  `id` INT NOT NULL,
+  `location` VARCHAR(25) NOT NULL DEFAULT 'Ground Zero',
+  `gps_location` VARCHAR(100) NOT NULL,
   `initial_eval_time` VARCHAR(45) NULL,
   `gender` VARCHAR(12) NULL,
   PRIMARY KEY (`id`))
@@ -36,7 +36,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `vitals` ;
 
 CREATE TABLE IF NOT EXISTS `vitals` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `diastolic_bp` INT NULL,
   `systolic_bp` INT NULL,
   `pulse` INT NULL,
@@ -60,7 +60,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `personal_info` ;
 
 CREATE TABLE IF NOT EXISTS `personal_info` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `middle_name` VARCHAR(45) NULL,
@@ -82,9 +82,9 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `symptoms` ;
 
 CREATE TABLE IF NOT EXISTS `symptoms` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `body_part` VARCHAR(45) NULL,
-  `injury` VARCHAR(45) NULL,
+  `id` INT NOT NULL,
+  `body_part` VARCHAR(45) NOT NULL,
+  `injury` VARCHAR(45) NOT NULL,
   `person_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_symptoms_person1_idx` (`person_id` ASC),
@@ -112,7 +112,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ttptriage`;
-INSERT INTO `person` (`id`, `location`, `gps_location`, `initial_eval_time`, `gender`) VALUES (1, 'Denver', NULL, NULL, 'f');
+INSERT INTO `person` (`id`, `location`, `gps_location`, `initial_eval_time`, `gender`) VALUES (1, '1,2', '1,2', '21:16', 'female');
 
 COMMIT;
 
@@ -122,7 +122,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ttptriage`;
-INSERT INTO `vitals` (`id`, `diastolic_bp`, `systolic_bp`, `pulse`, `resp_rate`, `pulse_ox`, `severity`, `person_id`) VALUES (1, 110, 60, 60, 30, 98, 'GREEN', 1);
+INSERT INTO `vitals` (`id`, `diastolic_bp`, `systolic_bp`, `pulse`, `resp_rate`, `pulse_ox`, `severity`, `person_id`) VALUES (1, 138, 90, 95, 40, 95, 'YELLOW', 1);
 
 COMMIT;
 
@@ -132,7 +132,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ttptriage`;
-INSERT INTO `personal_info` (`id`, `first_name`, `last_name`, `middle_name`, `dob`, `person_id`) VALUES (DEFAULT, 'Jane', 'Doe', NULL, '1980-12-12', 1);
+INSERT INTO `personal_info` (`id`, `first_name`, `last_name`, `middle_name`, `dob`, `person_id`) VALUES (1, 'Jane', 'Doe', 'A', '1989-10-25', 1);
 
 COMMIT;
 
@@ -142,7 +142,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ttptriage`;
-INSERT INTO `symptoms` (`id`, `body_part`, `injury`, `person_id`) VALUES (1, 'leg', 'laceration', 1);
+INSERT INTO `symptoms` (`id`, `body_part`, `injury`, `person_id`) VALUES (1, 'ARM', 'LACERATION', 1);
 
 COMMIT;
 

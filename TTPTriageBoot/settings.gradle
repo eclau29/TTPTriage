@@ -1,0 +1,2 @@
+rootProject.name = 'TTPTriageBoot'
+includeFlat 'TTPTriageJPA'
