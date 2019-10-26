@@ -10,6 +10,9 @@ import { GeneralInfoComponent } from './general-info/general-info.component';
 import { ScannerComponent } from './scanner/scanner.component';
 import { SeverityComponent } from './severity/severity.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -61,6 +64,9 @@ import { MatAutocompleteModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -96,7 +102,8 @@ import { MatAutocompleteModule,
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
