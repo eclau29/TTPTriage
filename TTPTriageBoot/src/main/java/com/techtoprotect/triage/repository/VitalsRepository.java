@@ -9,5 +9,5 @@ import com.techtoprotect.triage.model.Vitals;
 public interface VitalsRepository extends JpaRepository<Vitals, Integer> {
 //    void addVitals(Vitals vitals);
 	List<Vitals> findByPersonId(int personId);
-	Vitals create(Vitals vitals);
+//	Vitals create(Vitals vitals);
 }
