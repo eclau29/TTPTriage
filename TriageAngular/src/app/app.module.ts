@@ -49,6 +49,7 @@ import { MatAutocompleteModule,
   MatTooltipModule,
   MatTreeModule,
   MatFormFieldModule } from '@angular/material/';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { MatAutocompleteModule,
     SymptomsComponent,
     GeneralInfoComponent,
     ScannerComponent,
-    SeverityComponent
+    SeverityComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
