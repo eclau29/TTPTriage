@@ -1,0 +1,5 @@
+<button mat-button [matMenuTriggerFor]="menu">Patient Triage Info</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/severity">Severity</button>
+  <button mat-menu-item>Vitals</button>
+</mat-menu>

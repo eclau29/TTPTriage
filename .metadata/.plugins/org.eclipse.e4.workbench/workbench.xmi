@@ -162,6 +162,7 @@
                 </children>
               </children>
             </children>
+<<<<<<< HEAD
             <children xsi:type="basic:PartSashContainer" xmi:id="_2WE4sveBEemYrKTOdigWYA" containerData="7238" selectedElement="_2WE4xveBEemYrKTOdigWYA">
               <children xsi:type="basic:PartSashContainer" xmi:id="_2WE4s_eBEemYrKTOdigWYA" containerData="6991" selectedElement="_2WE4tPeBEemYrKTOdigWYA" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_2WE4tPeBEemYrKTOdigWYA" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_2WFgsfeBEemYrKTOdigWYA"/>
@@ -169,6 +170,15 @@
                   <children xsi:type="basic:PartSashContainer" xmi:id="_2WE4tveBEemYrKTOdigWYA" containerData="5000" selectedElement="_2WE4ufeBEemYrKTOdigWYA">
                     <children xsi:type="basic:PartStack" xmi:id="_2WE4t_eBEemYrKTOdigWYA" elementId="org.eclipse.mylyn.tasks.ui.views.tasksMStack" toBeRendered="false" containerData="5000">
                       <children xsi:type="advanced:Placeholder" xmi:id="_2WE4uPeBEemYrKTOdigWYA" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" toBeRendered="false" ref="_2WGHSPeBEemYrKTOdigWYA" closeable="true">
+=======
+            <children xsi:type="basic:PartSashContainer" xmi:id="_hFxu4ueeEemoE8C-iExYAA" containerData="7958" selectedElement="_hFxu4-eeEemoE8C-iExYAA">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_hFxu4-eeEemoE8C-iExYAA" containerData="5632" selectedElement="_hFxu5OeeEemoE8C-iExYAA" horizontal="true">
+                <children xsi:type="advanced:Placeholder" xmi:id="_hFxu5OeeEemoE8C-iExYAA" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_hFyW_ueeEemoE8C-iExYAA"/>
+                <children xsi:type="basic:PartSashContainer" xmi:id="_hFxu5eeeEemoE8C-iExYAA" containerData="2500" selectedElement="_hFxu5ueeEemoE8C-iExYAA">
+                  <children xsi:type="basic:PartSashContainer" xmi:id="_hFxu5ueeEemoE8C-iExYAA" containerData="5000" selectedElement="_hFxu6eeeEemoE8C-iExYAA">
+                    <children xsi:type="basic:PartStack" xmi:id="_hFxu5-eeEemoE8C-iExYAA" elementId="org.eclipse.mylyn.tasks.ui.views.tasksMStack" toBeRendered="false" containerData="5000">
+                      <children xsi:type="advanced:Placeholder" xmi:id="_hFxu6OeeEemoE8C-iExYAA" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" toBeRendered="false" ref="_hFyXmOeeEemoE8C-iExYAA" closeable="true">
+>>>>>>> c6948e87d747bf3fc6282418ff8cea4739246911
                         <tags>View</tags>
                         <tags>categoryTag:Mylyn</tags>
                       </children>
@@ -217,7 +227,11 @@
                   </children>
                 </children>
               </children>
+<<<<<<< HEAD
               <children xsi:type="basic:PartStack" xmi:id="_2WE4xveBEemYrKTOdigWYA" elementId="bottom" containerData="3009" selectedElement="_2WE4y_eBEemYrKTOdigWYA">
+=======
+              <children xsi:type="basic:PartStack" xmi:id="_hFxu9ueeEemoE8C-iExYAA" elementId="bottom" containerData="4368" selectedElement="_hFxu_-eeEemoE8C-iExYAA">
+>>>>>>> c6948e87d747bf3fc6282418ff8cea4739246911
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
                 <tags>Gradle</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_2WE4x_eBEemYrKTOdigWYA" elementId="org.eclipse.ui.views.ProblemView" ref="_2WGHIPeBEemYrKTOdigWYA" closeable="true">
@@ -679,6 +693,7 @@
       <children xsi:type="menu:ToolBar" xmi:id="_2WGHp_eBEemYrKTOdigWYA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_vUO-8PX_EemncekVpbhdkg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_hF2oV-eeEemoE8C-iExYAA"/>
 =======
         <children xsi:type="menu:DirectToolItem" xmi:id="_2WGHqPeBEemYrKTOdigWYA" elementId="new.group">
@@ -716,6 +731,9 @@
           <tags>Opaque</tags>
         </children>
 >>>>>>> 4caeb10a34e3ce22a115816c2a1a020269ef8462
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_-NYqsPrEEemFV5F2_OuUvg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_hF2oV-eeEemoE8C-iExYAA"/>
+>>>>>>> c6948e87d747bf3fc6282418ff8cea4739246911
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_2WGt0veBEemYrKTOdigWYA" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -849,7 +867,11 @@
       <children xsi:type="menu:ToolBar" xmi:id="_2WHU7feBEemYrKTOdigWYA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_vUQ0I_X_EemncekVpbhdkg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_hF2n7eeeEemoE8C-iExYAA"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_-NbuAPrEEemFV5F2_OuUvg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_hF2n7eeeEemoE8C-iExYAA"/>
+>>>>>>> c6948e87d747bf3fc6282418ff8cea4739246911
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_hFy9aOeeEemoE8C-iExYAA" elementId="org.eclipse.buildship.ui.gradlebuildscripteditor" visible="false">
 =======
@@ -1260,6 +1282,7 @@
     <bindings xmi:id="_hFy-SOeeEemoE8C-iExYAA" keySequence="ALT+SHIFT+D R" command="_hF2BUOeeEemoE8C-iExYAA"/>
     <bindings xmi:id="_hFy-SeeeEemoE8C-iExYAA" keySequence="ALT+SHIFT+D R" command="_hF1Zx-eeEemoE8C-iExYAA"/>
     <bindings xmi:id="_hFy-SueeEemoE8C-iExYAA" keySequence="ALT+SHIFT+D W" command="_hF1aA-eeEemoE8C-iExYAA"/>
+<<<<<<< HEAD
     <bindings xmi:id="_vELJsfX_EemncekVpbhdkg" keySequence="COMMAND+CTRL+F" command="_hF2pOueeEemoE8C-iExYAA">
 =======
     <bindings xmi:id="_2WHV0feBEemYrKTOdigWYA" keySequence="ALT+SHIFT+D B" command="_2WNdi_eBEemYrKTOdigWYA"/>
@@ -1271,6 +1294,9 @@
     <bindings xmi:id="_2WHV1_eBEemYrKTOdigWYA" keySequence="ALT+SHIFT+D W" command="_2WM0nPeBEemYrKTOdigWYA"/>
     <bindings xmi:id="_2WHV2PeBEemYrKTOdigWYA" keySequence="COMMAND+CTRL+F" command="_2WOC9feBEemYrKTOdigWYA">
 >>>>>>> 4caeb10a34e3ce22a115816c2a1a020269ef8462
+=======
+    <bindings xmi:id="_99gbofrEEemFV5F2_OuUvg" keySequence="COMMAND+CTRL+F" command="_hF2pOueeEemoE8C-iExYAA">
+>>>>>>> c6948e87d747bf3fc6282418ff8cea4739246911
       <tags>deleted</tags>
     </bindings>
   </bindingTables>
@@ -1853,7 +1879,7 @@
   </bindingTables>
 <<<<<<< HEAD
   <bindingTables xmi:id="_hFzkrOeeEemoE8C-iExYAA" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_hFzlNueeEemoE8C-iExYAA">
-    <bindings xmi:id="_vELwwPX_EemncekVpbhdkg" keySequence="M1+W" command="_hF2pPOeeEemoE8C-iExYAA">
+    <bindings xmi:id="_99hCsPrEEemFV5F2_OuUvg" keySequence="M1+W" command="_hF2pPOeeEemoE8C-iExYAA">
       <tags>deleted</tags>
     </bindings>
   </bindingTables>
