@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class PersonalInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "personal_info_id")
 	private Integer id;
 	
 	@Column(name = "first_name")

@@ -26,7 +26,6 @@ public class Vitals {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "vitals_id")
 	private Integer id;
 	@Column(name = "diastolic_bp")
 	private Integer diastolicBloodPressure;
