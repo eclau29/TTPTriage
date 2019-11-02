@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Symptoms {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "symptoms_id")
+	@Column(name = "id")
 	private Integer symptomsId;
 
 	@Column(name = "body_part")
@@ -25,6 +25,10 @@ public class Symptoms {
 	@ManyToOne
 	@JoinColumn(name = "person_id")
 	private Person person;
+	
+	public Symptoms() {
+		
+	}
 
 	public Symptoms(Integer symptomsId, String bodyPart, String injury, Person person) {
 		this.symptomsId = symptomsId;
