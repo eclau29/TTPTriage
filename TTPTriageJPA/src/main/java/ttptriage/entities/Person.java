@@ -1,28 +1,29 @@
 package ttptriage.entities;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Person {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String location;
 	
-	@Column(name = "vitals_id")
-	private Integer vitalsId;
+//	@Column(name = "vitals_id")
+//	private Integer vitalsId;
 	
 	@OneToOne(mappedBy = "person")
-	@JoinColumn(name = "personal_info_id")
 	private PersonalInfo personalInfo;
 	
 	@Column(name = "gps_location")
@@ -41,11 +42,13 @@ public class Person {
 	public Person() {
 	}
 
-	public Person(Integer id, String location, Integer vitalsId, String gpsLocation, Timestamp initialEvalTime,
+	public Person(Integer id, String location, 
+//			Integer vitalsId, 
+			String gpsLocation, Timestamp initialEvalTime,
 			String gender, PersonalInfo personalInfo) {
 		this.id = id;
 		this.location = location;
-		this.vitalsId = vitalsId;
+//		this.vitalsId = vitalsId;
 		this.gpsLocation = gpsLocation;
 		this.initialEvalTime = initialEvalTime;
 		this.gender = gender;
@@ -68,13 +71,13 @@ public class Person {
 		this.location = location;
 	}
 
-	public Integer getVitalsId() {
-		return vitalsId;
-	}
-
-	public void setVitalsId(Integer vitalsId) {
-		this.vitalsId = vitalsId;
-	}
+//	public Integer getVitalsId() {
+//		return vitalsId;
+//	}
+//
+//	public void setVitalsId(Integer vitalsId) {
+//		this.vitalsId = vitalsId;
+//	}
 
 	public PersonalInfo getPersonalInfo() {
 		return personalInfo;

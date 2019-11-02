@@ -1,5 +1,7 @@
 package ttptriage.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
@@ -40,8 +42,9 @@ class PersonTests {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void assert_person_notNull() {
+		assertNotNull(person);
+		assertEquals("female", person.getGender());
 	}
 
 }

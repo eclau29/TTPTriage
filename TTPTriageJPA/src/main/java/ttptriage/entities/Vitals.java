@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,8 +25,8 @@ import ttptriage.enums.Severity;
 public class Vitals {
 
 	@Id
-	@GeneratedValue
-	@Column(name = "vitals_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name = "vitals_id")
 	private Integer id;
 	@Column(name = "diastolic_bp")
 	private Integer diastolicBloodPressure;
