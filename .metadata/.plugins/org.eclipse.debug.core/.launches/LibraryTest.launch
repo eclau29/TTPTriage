@@ -9,7 +9,7 @@
     <stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value=""/>
     <booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
     <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
-    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="ttptriage.entities.LibraryTest"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.ttptriage.entities.LibraryTest"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="TTPTriageJPA"/>
     <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-ea"/>
 </launchConfiguration>
