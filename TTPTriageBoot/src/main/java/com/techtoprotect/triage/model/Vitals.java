@@ -13,8 +13,8 @@ public class Vitals {
 
     @Id
     @GeneratedValue
-    @Column(name = "vitals_id")
-    private Integer id;
+    @Column(name = "id")
+    private Integer vitalsId;
     @Column(name = "diastolic_bp")
     private Integer diastolicBloodPressure;
     @Column(name = "systolic_bp")
@@ -37,8 +37,8 @@ public class Vitals {
     public Vitals() {
     }
 
-    public Vitals(Integer id, Integer diastolicBloodPressure, Integer systolicBloodPressure, Integer pulse, Integer respirationRate, Integer pulseOx, Timestamp timestamp, Severity severity, Person person) {
-        this.id = id;
+    public Vitals(Integer vitalsId, Integer diastolicBloodPressure, Integer systolicBloodPressure, Integer pulse, Integer respirationRate, Integer pulseOx, Timestamp timestamp, Severity severity, Person person) {
+        this.vitalsId = vitalsId;
     	this.diastolicBloodPressure = diastolicBloodPressure;
         this.systolicBloodPressure = systolicBloodPressure;
         this.pulse = pulse;
@@ -49,12 +49,12 @@ public class Vitals {
         this.person = person;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getVitalsId() {
+        return vitalsId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setVitalsId(Integer vitalsId) {
+        this.vitalsId = vitalsId;
     }
 
     public Integer getDiastolicBloodPressure() {
