@@ -21,7 +21,7 @@ USE `ttptriage` ;
 DROP TABLE IF EXISTS `catastrophe` ;
 
 CREATE TABLE IF NOT EXISTS `catastrophe` (
-  `cat_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `cat_id` INT(11) NOT NULL,
   `cat_name` VARCHAR(45) NULL,
   `cat_location` VARCHAR(45) NULL,
   PRIMARY KEY (`cat_id`))
@@ -34,16 +34,16 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `person` ;
 
 CREATE TABLE IF NOT EXISTS `person` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `location` VARCHAR(25) NOT NULL DEFAULT 'Ground Zero',
   `gps_location` VARCHAR(100) NOT NULL,
-  `initial_eval_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `initial_eval_time` VARCHAR(45) NULL,
   `gender` VARCHAR(12) NULL,
-  `catastrophe_cat_id` INT(11) NOT NULL,
+  `cat_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_person_catastrophe1_idx` (`catastrophe_cat_id` ASC),
+  INDEX `fk_person_catastrophe1_idx` (`cat_id` ASC),
   CONSTRAINT `fk_person_catastrophe1`
-    FOREIGN KEY (`catastrophe_cat_id`)
+    FOREIGN KEY (`cat_id`)
     REFERENCES `catastrophe` (`cat_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -56,7 +56,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `vitals` ;
 
 CREATE TABLE IF NOT EXISTS `vitals` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `diastolic_bp` INT NULL,
   `systolic_bp` INT NULL,
   `pulse` INT NULL,
@@ -80,7 +80,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `personal_info` ;
 
 CREATE TABLE IF NOT EXISTS `personal_info` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `middle_name` VARCHAR(45) NULL,
@@ -102,7 +102,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `symptoms` ;
 
 CREATE TABLE IF NOT EXISTS `symptoms` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `body_part` VARCHAR(45) NOT NULL,
   `injury` VARCHAR(45) NOT NULL,
   `person_id` INT NOT NULL,
@@ -126,53 +126,3 @@ GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'ttptri'@'localhost'
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- -----------------------------------------------------
--- Data for table `catastrophe`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `catastrophe` (`cat_id`, `cat_name`, `cat_location`) VALUES (1, '9/11', 'nyc');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `person`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `person` (`id`, `location`, `gps_location`, `initial_eval_time`, `gender`, `catastrophe_cat_id`) VALUES (1, DEFAULT, '10, 10', DEFAULT, 'female', 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `vitals`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `vitals` (`id`, `diastolic_bp`, `systolic_bp`, `pulse`, `resp_rate`, `pulse_ox`, `severity`, `person_id`) VALUES (1, 138, 88, 90, 38, 95, 'green', 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `personal_info`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `personal_info` (`id`, `first_name`, `last_name`, `middle_name`, `dob`, `person_id`) VALUES (1, 'Jane', 'Doe', 'A', '1989-10-28', 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `symptoms`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `symptoms` (`id`, `body_part`, `injury`, `person_id`) VALUES (1, 'left arm', 'laceration', 1);
-
-COMMIT;
-

@@ -8,10 +8,9 @@
 <item elementID="=TTPTriageJPA/src\/test\/java" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=TTPTriageJPA/src\/test\/resources" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
-<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1570294904207_3" label="TTPTriage" name="TTPTriage">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/TTPTriageJPA" type="4"/>
-</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1570294904207_3" label="TTPTriage" name="TTPTriage"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1570292520533_2" label="Window Working Set" name="Aggregate for window 1570292520532"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1571881251058_4" label="Window Working Set" name="Aggregate for window 1571881251058"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1572803107459_5" label="Window Working Set" name="Aggregate for window 1572803107459"/>
 <mruList name="TTPTriage"/>
 </workingSetManager>

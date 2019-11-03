@@ -9,11 +9,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Person {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -31,6 +36,7 @@ public class Person {
 	
 	@Column(name = "initial_eval_time")
 	private Timestamp initialEvalTime;
+	
 	private String gender;
 	
 	@OneToMany(mappedBy = "person")
@@ -38,6 +44,11 @@ public class Person {
 	
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Symptoms> symptomsList;
+	
+	@ManyToOne
+	@JsonIgnore
+	@JoinColumn(name = "cat_id")
+	private Integer catastrophe;
 
 	public Person() {
 	}
@@ -45,7 +56,7 @@ public class Person {
 	public Person(Integer id, String location, 
 //			Integer vitalsId, 
 			String gpsLocation, Timestamp initialEvalTime,
-			String gender, PersonalInfo personalInfo) {
+			String gender, PersonalInfo personalInfo, Integer catastrophe) {
 		this.id = id;
 		this.location = location;
 //		this.vitalsId = vitalsId;
@@ -53,6 +64,7 @@ public class Person {
 		this.initialEvalTime = initialEvalTime;
 		this.gender = gender;
 		this.personalInfo = personalInfo;
+		this.catastrophe = catastrophe;
 	}
 
 	public Integer getId() {
@@ -125,5 +137,13 @@ public class Person {
 
 	public void setSymptomsList(List<Symptoms> symptomsList) {
 		this.symptomsList = symptomsList;
+	}
+
+	public Integer getCatastrophe() {
+		return catastrophe;
+	}
+
+	public void setCatastrophe(Integer catastrophe) {
+		this.catastrophe = catastrophe;
 	}
 }
