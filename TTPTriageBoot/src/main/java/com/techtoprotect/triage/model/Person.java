@@ -1,8 +1,5 @@
 package com.techtoprotect.triage.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.Cascade;
-
 import java.sql.Timestamp;
 import java.util.List;
 import javax.persistence.*;
@@ -10,7 +7,7 @@ import javax.persistence.*;
 @Entity
 public class Person {
     @Id
-    private String id;
+    private Integer id;
     private String location;
     @Column(name = "vitals_id")
     private Integer vitalsId;
@@ -30,7 +27,7 @@ public class Person {
     public Person() {
     }
 
-    public Person(String id, String location, Integer vitalsId, String gpsLocation, Timestamp initialEvalTime, String gender, PersonalInfo personalInfo) {
+    public Person(Integer id, String location, Integer vitalsId, String gpsLocation, Timestamp initialEvalTime, String gender, PersonalInfo personalInfo) {
         this.id = id;
         this.location = location;
         this.vitalsId = vitalsId;
@@ -40,11 +37,11 @@ public class Person {
         this.personalInfo = personalInfo;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
