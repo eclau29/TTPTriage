@@ -25,24 +25,15 @@ public class VitalsController {
 
     @Autowired
     VitalsRepository vitalsRepository;
-    @Autowired
-    PersonRepository pRepo;
 
 
 //    public VitalsController(VitalsRepository vitalsRepository) {
 //        this.vitalsRepository = vitalsRepository;
 //    }
     
-    @GetMapping(value="/{personId}/getVitals/")
-    public List<Vitals> getVitals(@PathVariable int personId){
-    	Optional<Person> person = pRepo.findById(personId);
-    	Person managedPerson = null;
-    	List<Vitals> vitalsList = null;
-    	if (person.isPresent()) {
-    		managedPerson = person.get();
-    		vitalsList = managedPerson.getVitalsList();
-    		return vitalsList;
-    	}
+    @PostMapping(path="/{personId}/getVitals/", consumes = "application/json", produces="application/json")
+    public List<Vitals> getVitals(@RequestBody Person person){
+    	List<Vitals> vitalsList = vitalsRepository.findVitalsByPersonId(person.getId());
     	return vitalsList;
     }
     

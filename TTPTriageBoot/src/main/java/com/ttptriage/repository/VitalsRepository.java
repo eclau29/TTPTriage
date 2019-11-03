@@ -8,6 +8,6 @@ import com.ttptriage.entities.Vitals;
 
 public interface VitalsRepository extends JpaRepository<Vitals, Integer> {
 //    void addVitals(Vitals vitals);
-	List<Vitals> findByPersonId(int personId);
+	List<Vitals> findVitalsByPersonId(int personId);
 //	Vitals create(Vitals vitals);
 }
