@@ -26,25 +26,34 @@ public class Vitals {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	@Column(name = "diastolic_bp")
 	private Integer diastolicBloodPressure;
+	
 	@Column(name = "systolic_bp")
 	private Integer systolicBloodPressure;
+	
 	private Integer pulse;
+	
 	@Column(name = "resp_rate")
 	private Integer respirationRate;
+	
 	@Column(name = "pulse_ox")
 	private Integer pulseOx;
+	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timestamp;
+	
 	@Enumerated(EnumType.STRING)
 	private Severity severity;
+	
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "person_id")
 	private Person person;
 
+	
 	public Vitals() {
 	}
 

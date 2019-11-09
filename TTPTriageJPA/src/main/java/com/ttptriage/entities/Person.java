@@ -13,6 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,15 +29,13 @@ public class Person {
 	
 	private String location;
 	
-//	@Column(name = "vitals_id")
-//	private Integer vitalsId;
-	
 	@OneToOne(mappedBy = "person")
 	private PersonalInfo personalInfo;
 	
 	@Column(name = "gps_location")
 	private String gpsLocation;
 	
+	@CreationTimestamp //Creation of the Person is at the time of initial evaluation
 	@Column(name = "initial_eval_time")
 	private Timestamp initialEvalTime;
 	
@@ -54,12 +56,10 @@ public class Person {
 	}
 
 	public Person(Integer id, String location, 
-//			Integer vitalsId, 
 			String gpsLocation, Timestamp initialEvalTime,
 			String gender, PersonalInfo personalInfo, Catastrophe catastrophe) {
 		this.id = id;
 		this.location = location;
-//		this.vitalsId = vitalsId;
 		this.gpsLocation = gpsLocation;
 		this.initialEvalTime = initialEvalTime;
 		this.gender = gender;
@@ -82,14 +82,6 @@ public class Person {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-
-//	public Integer getVitalsId() {
-//		return vitalsId;
-//	}
-//
-//	public void setVitalsId(Integer vitalsId) {
-//		this.vitalsId = vitalsId;
-//	}
 
 	public PersonalInfo getPersonalInfo() {
 		return personalInfo;

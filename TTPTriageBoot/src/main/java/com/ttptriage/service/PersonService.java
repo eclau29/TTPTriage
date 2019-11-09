@@ -1,22 +1,21 @@
 package com.ttptriage.service;
-//package com.techtoprotect.triage.service;
-//
-//import com.techtoprotect.triage.dao.PersonDao;
-//import com.techtoprotect.triage.model.Person;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.beans.factory.annotation.Qualifier;
-//import org.springframework.stereotype.Service;
-//
-//public class PersonService {
-//
-//    private final PersonDao personDao;
-//
-//    @Autowired
-//    public PersonService(@Qualifier("personDao") PersonDao personDao) {
-//        this.personDao = personDao;
-//    }
-//
-//    public int addPerson(Person person) {
-//        return personDao.insertPerson(person);
-//    }
-//}
+
+import java.util.List;
+
+import com.ttptriage.entities.Person;
+
+public interface PersonService {
+	/*
+	 *  LIST	GET		/api/patients/			List Patients
+		CREATE	POST	/api/patients/			Add Patient
+		READ	GET		/api/patients/{pid}/	Show Patient
+		UPDATE	PUT		/api/patients/{pid}/	Update Patient
+		DELETE	DELETE	/api/patients/{pid}/	Delete Patient
+	 */
+	
+	public List<Person> listAllPersons();
+	public Person create(Person person);
+	public Person findById(int personId);
+	public Person update(int personId, Person person);
+	public Boolean deletePerson(int personId);
+}

@@ -1,7 +1,10 @@
 package com.ttptriage.service;
-//package com.techtoprotect.triage.service;
-//
-//import org.springframework.stereotype.Service;
-//
-//public class PersonalInfoService {
-//}
+
+import com.ttptriage.entities.PersonalInfo;
+
+public interface PersonalInfoService {
+	public PersonalInfo create(int personId, PersonalInfo personalInfo);
+	public PersonalInfo getInfo(int personId);
+	public PersonalInfo updateInfo(int personId, PersonalInfo personalInfo);
+	public Boolean deleteInfo(int personId, int infoId);
+}

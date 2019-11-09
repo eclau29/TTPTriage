@@ -1,22 +1,14 @@
 package com.ttptriage.service;
 
-import com.ttptriage.dao.VitalsDao;
+import java.util.List;
+
 import com.ttptriage.entities.Vitals;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+public interface VitalsService {
 
-public class VitalsService {
-
-    private final VitalsDao vitalsDao;
-
-    @Autowired
-    public VitalsService(@Qualifier("vitalsDao") VitalsDao vitalsDao) {
-        this.vitalsDao = vitalsDao;
-    }
-
-    public Integer addVitals(Vitals vitals) {
-        return vitalsDao.insertVitals(vitals);
-    }
-
+	List<Vitals> getVitals(Integer personId);
+	Vitals getByPerson_IdAndVitals_Id(Integer personId, Integer vitalsId);
+	Vitals addVitals(Integer personId, Vitals vitals);
+	Vitals update(Integer personId, Integer vitalsId, Vitals vitals);
+	Boolean deleteVitals(Integer personId, Integer vitalsId);
 }

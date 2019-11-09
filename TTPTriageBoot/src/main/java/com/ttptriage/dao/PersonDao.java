@@ -1,9 +1,8 @@
 package com.ttptriage.dao;
-//package com.techtoprotect.triage.dao;
-//
-//import com.techtoprotect.triage.model.Person;
-//
-//public interface PersonDao {
-//
-//    int insertPerson(Person person);
-//}
+
+import com.ttptriage.entities.Person;
+
+public interface PersonDao {
+
+    int insertPerson(Person person);
+}
