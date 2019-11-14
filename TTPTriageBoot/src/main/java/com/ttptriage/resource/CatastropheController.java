@@ -51,11 +51,4 @@ public class CatastropheController {
 		return catsvc.findAllPeopleByCatastropheId(catastropheId);
 	}
 	
-	@PostMapping(value = "/{catastropheId}/victims")
-	public Person addVictim(@PathVariable int catastropheId, @RequestBody Person newVictim) {
-		return catsvc.
-	}
-	
-	
-
 }

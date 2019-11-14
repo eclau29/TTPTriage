@@ -31,7 +31,13 @@ public class VitalsServiceImpl implements VitalsService {
 	
 	@Override
 	public List<Vitals> getVitals(Integer personId) {
-		return vrepo.findVitalsByPerson_Id(personId);
+		Optional<Person> personOpt = prepo.findById(personId);
+		List<Vitals> foundVitals = null;
+		if (personOpt.isPresent()) {
+			Person person = personOpt.get();
+			foundVitals = person.getVitalsList();
+		}
+		return foundVitals;
 	}
 
 	@Override

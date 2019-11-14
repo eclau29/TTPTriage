@@ -9,12 +9,15 @@ import org.springframework.stereotype.Service;
 import com.ttptriage.entities.Catastrophe;
 import com.ttptriage.entities.Person;
 import com.ttptriage.repository.CatastropheRepository;
+import com.ttptriage.repository.PersonRepository;
 
 @Service
 public class CatastropheServiceImpl implements CatastropheService {
 
 	@Autowired
 	private CatastropheRepository catrepo;
+	@Autowired
+	private PersonRepository prepo;
 
 	@Override
 	public List<Catastrophe> listAllCatastrophes() {
@@ -70,12 +73,6 @@ public class CatastropheServiceImpl implements CatastropheService {
 		return catVictims;
 	}
 
-	//TODO: fix this
-	@Override
-	public Person addVictim(int catId, Person victim) {
-		List<Person> victimList = findAllPeopleByCatastropheId(catId);
-		victimList.add(victim);
-		return catrepo.saveAndFlush(victimList);
-	}
+	
 
 }

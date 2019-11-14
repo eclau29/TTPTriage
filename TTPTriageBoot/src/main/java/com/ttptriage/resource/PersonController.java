@@ -1,7 +1,6 @@
 package com.ttptriage.resource;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,15 +12,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ttptriage.entities.Catastrophe;
 import com.ttptriage.entities.Person;
 import com.ttptriage.entities.PersonalInfo;
 import com.ttptriage.entities.Symptoms;
 import com.ttptriage.entities.Vitals;
 import com.ttptriage.repository.PersonRepository;
-import com.ttptriage.service.PersonServiceImpl;
-import com.ttptriage.service.PersonalInfoServiceImpl;
-import com.ttptriage.service.SymptomsServiceImpl;
-import com.ttptriage.service.VitalsServiceImpl;
+import com.ttptriage.service.CatastropheService;
+import com.ttptriage.service.PersonService;
+import com.ttptriage.service.PersonalInfoService;
+import com.ttptriage.service.SymptomsService;
+import com.ttptriage.service.VitalsService;
 
 @RestController
 @RequestMapping(value = "api/person")
@@ -30,13 +31,15 @@ public class PersonController {
     @Autowired
     private PersonRepository personRepository;
     @Autowired
-    private PersonServiceImpl psvc;
+    private PersonService psvc;
     @Autowired
-    private VitalsServiceImpl vsvc;
+    private VitalsService vsvc;
     @Autowired
-    private PersonalInfoServiceImpl infosvc;
+    private PersonalInfoService infosvc;
     @Autowired
-    private SymptomsServiceImpl symsvc;
+    private SymptomsService symsvc;
+    @Autowired
+    private CatastropheService catsvc;
 
     //postman success
     @GetMapping(value = "/all")
@@ -50,15 +53,16 @@ public class PersonController {
     	return personRepository.findById(personId);
     }
     
-    //PostMan fail: unsupported media type
-    @GetMapping(path="/{personId}/vitals/", consumes = "application/json", produces="application/json")
-    public List<Vitals> getVitals(@RequestBody Person person){
-    	return vsvc.getVitals(person.getId());
+    //PostMan success
+    @GetMapping(path="/{personId}/vitals/")
+    public List<Vitals> getVitals(@PathVariable int personId){
+    	return vsvc.getVitals(personId);
     }
     
     
     @PostMapping(path="/{personId}/vitals/")
-    public Vitals addVitals(@RequestBody Integer personId, Vitals vitals){
+    public Vitals addVitals(@RequestBody Vitals vitals, @PathVariable Integer personId ){
+    	System.err.println("Person Id: " + personId + " Vitals: " + vitals);
     	return vsvc.addVitals(personId, vitals);
     }
     
@@ -149,7 +153,12 @@ public class PersonController {
     	return symsvc.deleteOneSymptom(personId, symptomsId);
     }
     
-    
+  	public Person addVictim(int catId, Person victim) {
+  		Catastrophe cat = catsvc.findById(catId);
+  		Person newVictim = psvc.create(victim);
+  		cat.getVictims().add(newVictim);
+  		return newVictim;
+  	}
 }
     
     

@@ -12,6 +12,5 @@ public interface CatastropheService {
 	public Catastrophe update(int catId, Catastrophe newCatInfo);
 	public Boolean deleteCatastrophe(int catId);
 	public List<Person> findAllPeopleByCatastropheId(int catId);
-	public Person addVictim(int catId, Person victim);
 	
 }
