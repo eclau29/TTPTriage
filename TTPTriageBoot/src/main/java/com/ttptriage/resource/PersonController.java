@@ -1,6 +1,7 @@
 package com.ttptriage.resource;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,10 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ttptriage.entities.Person;
 import com.ttptriage.entities.PersonalInfo;
+import com.ttptriage.entities.Symptoms;
 import com.ttptriage.entities.Vitals;
 import com.ttptriage.repository.PersonRepository;
 import com.ttptriage.service.PersonServiceImpl;
 import com.ttptriage.service.PersonalInfoServiceImpl;
+import com.ttptriage.service.SymptomsServiceImpl;
 import com.ttptriage.service.VitalsServiceImpl;
 
 @RestController
@@ -32,27 +35,34 @@ public class PersonController {
     private VitalsServiceImpl vsvc;
     @Autowired
     private PersonalInfoServiceImpl infosvc;
+    @Autowired
+    private SymptomsServiceImpl symsvc;
 
+    //postman success
     @GetMapping(value = "/all")
     public List<Person> getPersons() {
         return personRepository.findAll();
     }
     
+    //postman success
     @GetMapping(value = "/{personId}")
     public Person getPersonById(@PathVariable int personId) {
     	return personRepository.findById(personId);
     }
     
+    //PostMan fail: unsupported media type
     @GetMapping(path="/{personId}/vitals/", consumes = "application/json", produces="application/json")
     public List<Vitals> getVitals(@RequestBody Person person){
     	return vsvc.getVitals(person.getId());
     }
+    
     
     @PostMapping(path="/{personId}/vitals/")
     public Vitals addVitals(@RequestBody Integer personId, Vitals vitals){
     	return vsvc.addVitals(personId, vitals);
     }
     
+    //postman success
     @GetMapping(path="/{personId}/vitals/{vitalsId}")
     public Vitals getVitalsById(@PathVariable Integer personId, @PathVariable Integer vitalsId) {
     	return vsvc.getByPerson_IdAndVitals_Id(personId, vitalsId);
@@ -85,12 +95,15 @@ public class PersonController {
     	return deleted;
     }
     
+	//PostMan success
     @GetMapping(path="/{personId}/personalInfo/")
     public PersonalInfo getPersonalInfo (@PathVariable Integer personId) {
     	return infosvc.getInfo(personId);
     }
+    
+    
     @DeleteMapping(path="/{personId}/personalInfo/{infoId}")
-    public Boolean getPersonalInfo (@PathVariable Integer personId, @PathVariable Integer infoId) {
+    public Boolean deletePersonalInfo1(@PathVariable Integer personId, @PathVariable Integer infoId) {
     	return infosvc.deleteInfo(personId, infoId);
     }
     
@@ -110,6 +123,31 @@ public class PersonController {
     	return null;
     }
     
+  //PostMan success
+    @GetMapping(path="/{personId}/symptoms")
+    public List<Symptoms> getPersonsSymptoms (@PathVariable Integer personId){
+    	return symsvc.getPersonsSymptoms(personId);
+    }
+    
+    
+    @PostMapping(path="/{personId}/symptoms")
+    public Symptoms addSymptoms(@PathVariable Integer personId, @RequestBody Symptoms newSymptoms) {
+    	newSymptoms.setPerson(psvc.findById(personId));
+    	return symsvc.createOneSymptom(personId, newSymptoms);
+    }
+    
+    
+    @PutMapping(path="/{personId}/symptoms/{symptomsId}")
+    public Symptoms updateSymptoms(@PathVariable Integer personId,@PathVariable Integer symptomsId,
+    		@RequestBody Symptoms newSymptoms) {
+    	return symsvc.updateOneSymptom(personId, symptomsId, newSymptoms);
+    }
+    
+    
+    @DeleteMapping(path="/{personId}/symptoms/{symptomsId}")
+    public Boolean deletePersonalInfo (@PathVariable Integer personId, @PathVariable Integer symptomsId) {
+    	return symsvc.deleteOneSymptom(personId, symptomsId);
+    }
     
     
 }

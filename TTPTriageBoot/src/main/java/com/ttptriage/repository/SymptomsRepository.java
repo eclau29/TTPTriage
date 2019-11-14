@@ -9,4 +9,5 @@ import java.util.List;
 public interface SymptomsRepository extends JpaRepository<Symptoms, Integer> {
 
     public List<Symptoms> findSymptomsByPersonId(Integer personId);
+    public Symptoms findBySymptomsIdAndPerson_Id(Integer symptomsId, Integer personId);
 }

@@ -56,7 +56,8 @@ public class PersonalInfoController {
 	}
 	
 	@PutMapping(value="/{personId}/info/{infoId}")
-	public PersonalInfo updateInfo(@PathVariable Integer infoId, @PathVariable Integer personId, @RequestBody PersonalInfo info, HttpServletResponse resp, HttpServletRequest req) {
+	public PersonalInfo updateInfo(@PathVariable Integer infoId, @PathVariable Integer personId,
+			@RequestBody PersonalInfo info, HttpServletResponse resp, HttpServletRequest req) {
 //		System.err.println("Film details: " + film);
 //		return svc.update(fid, film);
 		//alternative with error checking before
