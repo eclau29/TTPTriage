@@ -21,7 +21,7 @@ USE `ttptriage` ;
 DROP TABLE IF EXISTS `catastrophe` ;
 
 CREATE TABLE IF NOT EXISTS `catastrophe` (
-  `cat_id` INT(11) NOT NULL,
+  `cat_id` INT(11) NOT NULL AUTO_INCREMENT,
   `cat_name` VARCHAR(45) NULL,
   `cat_location` VARCHAR(45) NULL,
   PRIMARY KEY (`cat_id`))
@@ -34,7 +34,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `person` ;
 
 CREATE TABLE IF NOT EXISTS `person` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `location` VARCHAR(25) NOT NULL DEFAULT 'Ground Zero',
   `gps_location` VARCHAR(100) NOT NULL,
   `initial_eval_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -56,7 +56,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `vitals` ;
 
 CREATE TABLE IF NOT EXISTS `vitals` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `diastolic_bp` INT NULL,
   `systolic_bp` INT NULL,
   `pulse` INT NULL,
@@ -81,7 +81,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `personal_info` ;
 
 CREATE TABLE IF NOT EXISTS `personal_info` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `middle_name` VARCHAR(45) NULL,
@@ -103,7 +103,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `symptoms` ;
 
 CREATE TABLE IF NOT EXISTS `symptoms` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `body_part` VARCHAR(45) NOT NULL,
   `injury` VARCHAR(45) NOT NULL,
   `person_id` INT NOT NULL,
@@ -115,6 +115,20 @@ CREATE TABLE IF NOT EXISTS `symptoms` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+USE `ttptriage` ;
+
+-- -----------------------------------------------------
+-- Placeholder table for view `view1`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `view1` (`id` INT);
+
+-- -----------------------------------------------------
+-- View `view1`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `view1`;
+DROP VIEW IF EXISTS `view1` ;
+USE `ttptriage`;
 
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO ttptri@localhost;

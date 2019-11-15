@@ -16,7 +16,7 @@ public class Catastrophe {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "cat_id")
-	private Integer catId;
+	private int catId;
 
 	@Column(name = "cat_name")
 	private String catName;
