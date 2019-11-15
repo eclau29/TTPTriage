@@ -5,6 +5,7 @@ import { VitalsComponent } from './vitals/vitals.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
+import { ScannerComponent } from './scanner/scanner.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'symptoms', component: SymptomsComponent},
   { path: 'info', component: GeneralInfoComponent},
   { path: 'menu', component: MenuComponent},
+  { path: 'scanner', component: ScannerComponent},
 ];
 
 @NgModule({

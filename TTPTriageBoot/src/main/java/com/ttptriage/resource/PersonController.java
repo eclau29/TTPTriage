@@ -59,7 +59,7 @@ public class PersonController {
     	return vsvc.getVitals(personId);
     }
     
-    //fail: 403
+    //PM success
     @PostMapping(path="/{personId}/vitals/")
     public Vitals addVitals(@RequestBody Vitals vitals, @PathVariable Integer personId ){
     	System.err.println("Person Id: " + personId + " Vitals: " + vitals);
@@ -72,6 +72,7 @@ public class PersonController {
     	return vsvc.getByPerson_IdAndVitals_Id(personId, vitalsId);
     }
     
+    //success
     @PutMapping(path="/{personId}/vitals/{vitalsId}")
     public Vitals editVitals(@PathVariable Integer personId, @PathVariable Integer vitalsId, @RequestBody Vitals vitals ) {
     	Vitals currentVitals = vsvc.getByPerson_IdAndVitals_Id(personId, vitalsId);
@@ -83,6 +84,7 @@ public class PersonController {
     	return null;
     }
     
+    //success
     @DeleteMapping(path="/{personId}/vitals/{vitalsId}")
     public Boolean deleteVitals(@PathVariable Integer personId, @PathVariable Integer vitalsId) {
     	Boolean deleted = false;
@@ -116,6 +118,7 @@ public class PersonController {
     	return infosvc.create(personId, personalInfo);
     }
     
+    //success
     @PutMapping(path="/{personId}/personalInfo/")
     public PersonalInfo updatePersonalInfo(@PathVariable Integer personId, @RequestBody PersonalInfo personalInfo ) {
     	PersonalInfo infoToUpdate = infosvc.getInfo(personId);
@@ -133,32 +136,27 @@ public class PersonController {
     	return symsvc.getPersonsSymptoms(personId);
     }
     
-    
+    //success
     @PostMapping(path="/{personId}/symptoms")
     public Symptoms addSymptoms(@PathVariable Integer personId, @RequestBody Symptoms newSymptoms) {
     	newSymptoms.setPerson(psvc.findById(personId));
     	return symsvc.createOneSymptom(personId, newSymptoms);
     }
     
-    
+    //success
     @PutMapping(path="/{personId}/symptoms/{symptomsId}")
     public Symptoms updateSymptoms(@PathVariable Integer personId,@PathVariable Integer symptomsId,
     		@RequestBody Symptoms newSymptoms) {
     	return symsvc.updateOneSymptom(personId, symptomsId, newSymptoms);
     }
     
-    
+    //success
     @DeleteMapping(path="/{personId}/symptoms/{symptomsId}")
     public Boolean deletePersonalInfo (@PathVariable Integer personId, @PathVariable Integer symptomsId) {
     	return symsvc.deleteOneSymptom(personId, symptomsId);
     }
     
-  	public Person addVictim(int catId, Person victim) {
-  		Catastrophe cat = catsvc.findById(catId);
-  		Person newVictim = psvc.create(victim);
-  		cat.getVictims().add(newVictim);
-  		return newVictim;
-  	}
+    
 }
     
     

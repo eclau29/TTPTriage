@@ -3,5 +3,5 @@ export class Catastrophe {
   catName: string;
   catLocation: string;
 
-  constructor () {}
+  constructor() {}
 }

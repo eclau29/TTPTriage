@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angularx-qrcode';
+import { GoogleMapsModule } from '@angular/google-maps';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VitalsComponent } from './vitals/vitals.component';
@@ -13,6 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {PortalModule} from '@angular/cdk/portal';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -64,6 +68,7 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     BrowserModule,
     QRCodeModule,
+    GoogleMapsModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -106,6 +111,10 @@ import { MenuComponent } from './menu/menu.component';
     MatTooltipModule,
     MatTreeModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
+    PortalModule,
+    ScrollingModule,
+    ZXingScannerModule
 
   ],
   providers: [],

@@ -75,6 +75,7 @@ public class VitalsServiceImpl implements VitalsService {
 	public Vitals update(Integer personId,Integer vitalsId, Vitals vitals) {
 		Vitals currVitals = vrepo.findByIdAndPerson_Id(vitalsId, personId);
 		vitals.setId(vitalsId);
+		vitals.setTimestamp(currVitals.getTimestamp());
 		vitals.setPerson(currVitals.getPerson());
 		return vrepo.saveAndFlush(vitals);
 	}

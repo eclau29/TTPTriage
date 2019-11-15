@@ -3,6 +3,7 @@ package com.ttptriage.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -48,7 +49,7 @@ public class Vitals {
 	@Enumerated(EnumType.STRING)
 	private Severity severity;
 	
-	@ManyToOne
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JsonIgnore
 	@JoinColumn(name = "person_id")
 	private Person person;

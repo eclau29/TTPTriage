@@ -41,13 +41,13 @@ public class Person {
 	
 	private String gender;
 	
-	@OneToMany(mappedBy = "person")
+	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Vitals> vitalsList;
 	
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Symptoms> symptomsList;
 	
-	@ManyToOne
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JsonIgnore
 	@JoinColumn(name = "cat_id")
 	private Catastrophe catastrophe;

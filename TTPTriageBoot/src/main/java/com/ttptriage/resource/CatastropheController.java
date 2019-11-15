@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ttptriage.entities.Catastrophe;
 import com.ttptriage.entities.Person;
 import com.ttptriage.service.CatastropheService;
+import com.ttptriage.service.PersonService;
 
 
 @RestController
@@ -21,6 +22,8 @@ import com.ttptriage.service.CatastropheService;
 public class CatastropheController {
 	@Autowired
 	private CatastropheService catsvc;
+	@Autowired
+	private PersonService psvc;
 	
 	//PostMan success
 	@GetMapping(value = "/all")
@@ -50,5 +53,15 @@ public class CatastropheController {
 	public List<Person> getCatastrophePersons(@PathVariable int catastropheId){
 		return catsvc.findAllPeopleByCatastropheId(catastropheId);
 	}
+	
+	@PostMapping(path="/{catId}/victims/")
+  	public Person addVictim(@PathVariable int catId, @RequestBody Person victim) {
+  		Catastrophe cat = catsvc.findById(catId);
+  		victim.setCatastrophe(cat);
+  		cat.getVictims().add(victim);
+  		catsvc.update(catId, cat);
+//  		Person newVictim = psvc.create(victim);
+  		return victim;
+  	}
 	
 }
