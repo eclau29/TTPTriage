@@ -1,20 +1,35 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav #sidenav mode="over" [(opened)]="opened">
-    <h1>
-      {{ title }}
-    </h1>
     <mat-button-toggle-group>
-      <nav>
-        <mat-button-toggle routerLink="/severity">Severity</mat-button-toggle><br>
-        <mat-button-toggle routerLink="/vitals">Vitals</mat-button-toggle><br>
-        <mat-button-toggle routerLink="/symptoms">Symptoms</mat-button-toggle><br>
-        <mat-button-toggle routerLink="/info">General Info</mat-button-toggle>
-      </nav>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Navigation
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <nav>
+            <mat-button-toggle routerLink="/severity">Severity</mat-button-toggle><br>
+            <mat-button-toggle routerLink="/vitals">Vitals</mat-button-toggle><br>
+            <mat-button-toggle routerLink="/symptoms">Symptoms</mat-button-toggle><br>
+            <mat-button-toggle routerLink="/info">General Info</mat-button-toggle>
+          </nav>
+        </mat-card-content>
+      </mat-card>
     </mat-button-toggle-group>
   </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-button (click)="sidenav.toggle()">Menu</button>
-    <router-outlet></router-outlet>
+    <div class="container text-center">
+      <h1>
+        {{ title }}
+      </h1>
+    </div>
+    <div class="container-fluid">
+      <button mat-raised-button (click)="sidenav.toggle()">Menu</button>
+    </div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
     <footer>
       <div class="container">
         <p class="text-xs-center">© Copyright 2019. All rights reserved.</p>
