@@ -1,18 +1,24 @@
-<div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
-  <nav>
-    <a routerLink="/severity">Severity</a><br>
-    <a routerLink="/vitals">Vitals</a><br>
-    <a routerLink="/symptoms">Symptoms</a><br>
-    <a routerLink="/info">General Info</a>
-  </nav>
-</div>
-<app-menu></app-menu>
-<router-outlet></router-outlet>
-<footer>
-  <div class="container">
-    <p  class="text-xs-center">© Copyright 2019. All rights reserved.</p>
-  </div>
-</footer>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+    <h1>
+      {{ title }}
+    </h1>
+    <mat-button-toggle-group>
+      <nav>
+        <mat-button-toggle routerLink="/severity">Severity</mat-button-toggle><br>
+        <mat-button-toggle routerLink="/vitals">Vitals</mat-button-toggle><br>
+        <mat-button-toggle routerLink="/symptoms">Symptoms</mat-button-toggle><br>
+        <mat-button-toggle routerLink="/info">General Info</mat-button-toggle>
+      </nav>
+    </mat-button-toggle-group>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-button (click)="sidenav.toggle()">Menu</button>
+    <router-outlet></router-outlet>
+    <footer>
+      <div class="container">
+        <p class="text-xs-center">© Copyright 2019. All rights reserved.</p>
+      </div>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
