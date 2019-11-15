@@ -9,6 +9,7 @@
         </mat-card-header>
         <mat-card-content>
           <nav>
+            <mat-button-toggle routerLink="/scanner">QR Scanner</mat-button-toggle><br>
             <mat-button-toggle routerLink="/severity">Severity</mat-button-toggle><br>
             <mat-button-toggle routerLink="/vitals">Vitals</mat-button-toggle><br>
             <mat-button-toggle routerLink="/symptoms">Symptoms</mat-button-toggle><br>
@@ -25,7 +26,7 @@
       </h1>
     </div>
     <div class="container-fluid">
-      <button mat-raised-button (click)="sidenav.toggle()">Menu</button>
+      <button mat-raised-button (click)="sidenav.toggle()" color="primary">Menu</button>
     </div>
     <div class="container">
       <router-outlet></router-outlet>

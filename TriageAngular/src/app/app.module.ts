@@ -16,6 +16,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import {PortalModule} from '@angular/cdk/portal';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -113,6 +114,7 @@ import { MenuComponent } from './menu/menu.component';
     ReactiveFormsModule,
     PortalModule,
     ScrollingModule,
+    ZXingScannerModule
 
   ],
   providers: [],
