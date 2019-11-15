@@ -104,8 +104,8 @@ DROP TABLE IF EXISTS `symptoms` ;
 
 CREATE TABLE IF NOT EXISTS `symptoms` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `body_part` VARCHAR(45) NOT NULL,
-  `injury` VARCHAR(45) NOT NULL,
+  `body_part` VARCHAR(45) NULL,
+  `injury` VARCHAR(45) NULL,
   `person_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_symptoms_person1_idx` (`person_id` ASC),
