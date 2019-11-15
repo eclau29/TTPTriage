@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { QRCodeModule } from 'angularx-qrcode';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VitalsComponent } from './vitals/vitals.component';
@@ -63,6 +63,7 @@ import { MenuComponent } from './menu/menu.component';
   ],
   imports: [
     BrowserModule,
+    QRCodeModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
