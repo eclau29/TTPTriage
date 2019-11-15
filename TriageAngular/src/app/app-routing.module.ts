@@ -9,6 +9,7 @@ import { ScannerComponent } from './scanner/scanner.component';
 
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'scanner' },
   { path: 'vitals', component: VitalsComponent},
   { path: 'severity', component: SeverityComponent},
   { path: 'symptoms', component: SymptomsComponent},
