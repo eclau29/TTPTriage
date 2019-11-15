@@ -1,7 +1,7 @@
 export class Symptoms {
-	symptomsId: number;
-	bodyPart: string;
-	injury: string;
-	
-	constructor () {}
+  symptomsId: number;
+  bodyPart: string;
+  injury: string;
+
+  constructor() {}
 }

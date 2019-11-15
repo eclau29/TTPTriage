@@ -5,5 +5,5 @@ export class PersonalInfo {
   lastName: string;
   dateOfBirth: string;
 
-  constructor () {}
+  constructor() {}
 }
