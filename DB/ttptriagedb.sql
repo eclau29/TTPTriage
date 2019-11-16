@@ -21,9 +21,10 @@ USE `ttptriage` ;
 DROP TABLE IF EXISTS `catastrophe` ;
 
 CREATE TABLE IF NOT EXISTS `catastrophe` (
-  `cat_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `cat_id` INT(11) NOT NULL,
   `cat_name` VARCHAR(45) NULL,
-  `cat_location` VARCHAR(45) NULL,
+  `cat_latitude` DECIMAL(10,8) NOT NULL COMMENT 'Latitude location of catastophe',
+  `cat_longitude` DECIMAL(11,8) NOT NULL COMMENT 'Longitude location of catastrophe',
   PRIMARY KEY (`cat_id`))
 ENGINE = InnoDB;
 
@@ -34,12 +35,14 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `person` ;
 
 CREATE TABLE IF NOT EXISTS `person` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `location` VARCHAR(25) NOT NULL DEFAULT 'Ground Zero',
-  `gps_location` VARCHAR(100) NOT NULL,
-  `initial_eval_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `initial_eval_time` VARCHAR(45) NULL,
   `gender` VARCHAR(12) NULL,
-  `cat_id` INT(11) NOT NULL,
+  `cat_id` INT(11) NOT NULL COMMENT 'Ref: Catastrophe',
+  `barcode_num` VARCHAR(200) NOT NULL COMMENT 'Number scanned in from barcode',
+  `eval_latitude` DECIMAL(10,8) NOT NULL COMMENT 'Latitude location of initial evaluation',
+  `eval_longitude` DECIMAL(11,8) NOT NULL COMMENT 'Longitude location of initial evaluation',
   PRIMARY KEY (`id`),
   INDEX `fk_person_catastrophe1_idx` (`cat_id` ASC),
   CONSTRAINT `fk_person_catastrophe1`
@@ -56,15 +59,14 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `vitals` ;
 
 CREATE TABLE IF NOT EXISTS `vitals` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `diastolic_bp` INT NULL,
-  `systolic_bp` INT NULL,
+  `id` INT NOT NULL,
+  `diastolic_bp` INT NULL COMMENT 'Diastolic blood pressure',
+  `systolic_bp` INT NULL COMMENT 'Systolic blood pressure',
   `pulse` INT NULL,
-  `resp_rate` INT NULL,
-  `pulse_ox` INT NULL,
-  `severity` ENUM('GREEN', 'YELLOW', 'RED', 'GRAY', 'BLACK') NULL,
-  `person_id` INT NOT NULL,
-  `timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `resp_rate` INT NULL COMMENT 'Respiratory rate',
+  `pulse_ox` INT NULL COMMENT 'Pulse oxygen level',
+  `severity` ENUM('GREEN', 'YELLOW', 'RED', 'GRAY', 'BLACK') NULL COMMENT 'GREEN, YELLOW, RED, GRAY, BLACK',
+  `person_id` INT NOT NULL COMMENT 'Ref: Person',
   PRIMARY KEY (`id`),
   INDEX `fk_vitals_person1_idx` (`person_id` ASC),
   CONSTRAINT `fk_vitals_person1`
@@ -81,12 +83,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `personal_info` ;
 
 CREATE TABLE IF NOT EXISTS `personal_info` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `middle_name` VARCHAR(45) NULL,
-  `dob` DATE NULL,
-  `person_id` INT NOT NULL,
+  `dob` DATE NULL COMMENT 'Date of Birth',
+  `person_id` INT NOT NULL COMMENT 'Ref: Person',
   PRIMARY KEY (`id`),
   INDEX `fk_personal_info_person1_idx` (`person_id` ASC),
   CONSTRAINT `fk_personal_info_person1`
@@ -103,10 +105,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `symptoms` ;
 
 CREATE TABLE IF NOT EXISTS `symptoms` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `body_part` VARCHAR(45) NULL,
-  `injury` VARCHAR(45) NULL,
-  `person_id` INT NOT NULL,
+  `id` INT NOT NULL,
+  `body_part` VARCHAR(45) NOT NULL,
+  `injury` VARCHAR(45) NOT NULL,
+  `person_id` INT NOT NULL COMMENT 'Ref: Person',
   PRIMARY KEY (`id`),
   INDEX `fk_symptoms_person1_idx` (`person_id` ASC),
   CONSTRAINT `fk_symptoms_person1`
@@ -115,20 +117,6 @@ CREATE TABLE IF NOT EXISTS `symptoms` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-USE `ttptriage` ;
-
--- -----------------------------------------------------
--- Placeholder table for view `view1`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `view1` (`id` INT);
-
--- -----------------------------------------------------
--- View `view1`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `view1`;
-DROP VIEW IF EXISTS `view1` ;
-USE `ttptriage`;
 
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO ttptri@localhost;
@@ -141,53 +129,3 @@ GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'ttptri'@'localhost'
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- -----------------------------------------------------
--- Data for table `catastrophe`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `catastrophe` (`cat_id`, `cat_name`, `cat_location`) VALUES (1, 'denver', 'colorado');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `person`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `person` (`id`, `location`, `gps_location`, `initial_eval_time`, `gender`, `cat_id`) VALUES (1, 'groundZero', '1000,1000', '2019-10-15 09:27:52', 'female', 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `vitals`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `vitals` (`id`, `diastolic_bp`, `systolic_bp`, `pulse`, `resp_rate`, `pulse_ox`, `severity`, `person_id`, `timestamp`) VALUES (1, 100, 50, 95, 40, 95, 'YELLOW', 1, DEFAULT);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `personal_info`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `personal_info` (`id`, `first_name`, `last_name`, `middle_name`, `dob`, `person_id`) VALUES (1, 'Jumanji', 'Doe', 'Jane', '1980-10-28', 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `symptoms`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ttptriage`;
-INSERT INTO `symptoms` (`id`, `body_part`, `injury`, `person_id`) VALUES (1, 'arm', 'laceration', 1);
-
-COMMIT;
-
