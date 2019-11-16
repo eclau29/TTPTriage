@@ -47,6 +47,7 @@ public class Person {
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Symptoms> symptomsList;
 	
+	@JsonIgnore
 	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "cat_id")
 	private Catastrophe catastrophe;

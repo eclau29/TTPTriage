@@ -1,5 +1,6 @@
 package com.ttptriage.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 		if (person != null) {
 //			List<Symptoms> newSymptoms = person.getSymptomsList();
 //			List<Vitals> newVitals = person.getVitalsList();
+			person.setSymptomsList(new ArrayList<Symptoms>());
+			person.setVitalsList(new ArrayList<Vitals>());
+			System.err.println(person);
 			personalInfo.setPerson(person);
 			pirepo.saveAndFlush(personalInfo);
 //			for (Symptoms symptom : newSymptoms) {

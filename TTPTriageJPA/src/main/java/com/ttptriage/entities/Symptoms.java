@@ -23,6 +23,7 @@ public class Symptoms {
 
 	private String injury;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "person_id")
 	private Person person;

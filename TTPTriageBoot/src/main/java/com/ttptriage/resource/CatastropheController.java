@@ -17,10 +17,11 @@ import com.ttptriage.entities.Person;
 import com.ttptriage.entities.PersonalInfo;
 import com.ttptriage.entities.Symptoms;
 import com.ttptriage.entities.Vitals;
-import com.ttptriage.repository.PersonalInfoRepository;
 import com.ttptriage.service.CatastropheService;
 import com.ttptriage.service.PersonService;
 import com.ttptriage.service.PersonalInfoService;
+import com.ttptriage.service.SymptomsService;
+import com.ttptriage.service.VitalsService;
 
 
 @RestController
@@ -32,6 +33,10 @@ public class CatastropheController {
 	private PersonService psvc;
 	@Autowired
 	private PersonalInfoService pInfoSvc;
+	@Autowired
+	private SymptomsService symptomSvc;
+	@Autowired
+	private VitalsService vitalSvc;
 	
 	//PostMan success
 	@GetMapping(value = "/all")
@@ -63,7 +68,6 @@ public class CatastropheController {
 	}
 	
 	@PostMapping(path="/{catId}/victims/")
-	//can I put multiple @RequestBody's as parameters?  ie @RB Symptoms, @RB Vitals, @RB PersonalInfo
   	public Person addVictim(@PathVariable int catId, @RequestBody Person victim) {
 		List<Symptoms> newSymptoms = victim.getSymptomsList();
 		List<Vitals> newVitals = victim.getVitalsList();
@@ -79,22 +83,21 @@ public class CatastropheController {
   		victim.setVitalsList(new ArrayList<Vitals>());
   		Person newVictim = psvc.create(victim);
   		
+  		
   		for (Symptoms symptom : newSymptoms) {
-  			symptom.setPerson(newVictim);
-  			System.out.println(symptom.getPerson().getId());
+  			symptomSvc.createOneSymptom(newVictim.getId(), symptom);
   		}
   		
   		for (Vitals vital : newVitals) {
-			vital.setPerson(newVictim);
-			
-		}
-  		
+  			vitalSvc.addVitals(newVictim.getId(), vital);
+  			
+  		}
   		newVictim.setSymptomsList(newSymptoms);
   		newVictim.setVitalsList(newVitals);
+  		System.err.println("victim after add: " + newVictim);
   		psvc.update(newVictim.getId(), newVictim);
   		
   		cat.getVictims().add(newVictim);
-  		System.err.println("victim after add: " + newVictim);
   		catsvc.update(catId, cat);
   		return victim;
   	}
