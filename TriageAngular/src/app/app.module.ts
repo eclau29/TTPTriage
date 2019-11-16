@@ -54,6 +54,7 @@ import { MatAutocompleteModule,
   MatTreeModule,
   MatFormFieldModule } from '@angular/material/';
 import { MenuComponent } from './menu/menu.component';
+import { CatastropheComponent } from './catastrophe/catastrophe.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { MenuComponent } from './menu/menu.component';
     GeneralInfoComponent,
     ScannerComponent,
     SeverityComponent,
-    MenuComponent
+    MenuComponent,
+    CatastropheComponent
   ],
   imports: [
     BrowserModule,
