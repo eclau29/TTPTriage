@@ -1,1 +1,9 @@
-<zxing-scanner [formats]="allowedFormats"></zxing-scanner>
+<div class="mat-container">
+    <h2>Scan Tag or Bracelet</h2>
+</div>
+
+<div>
+    <zxing-scanner [formats]="allowedFormats"></zxing-scanner>
+</div>
+
+<button mat-raised-button routerLink="/severity" color="primary" float="left">Next</button>
