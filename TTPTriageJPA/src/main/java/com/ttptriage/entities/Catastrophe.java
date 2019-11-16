@@ -28,7 +28,7 @@ public class Catastrophe {
 	@Column(name = "cat_longitude")
 	private Double catLongitude;
 	
-	@OneToMany(mappedBy = "catastrophe", cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "catastrophe", cascade = { CascadeType.PERSIST}, fetch = FetchType.EAGER)
 	private List<Person> victims;
 	
 	public Catastrophe() {

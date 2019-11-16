@@ -108,26 +108,34 @@ public class PersonController {
     }
     
     
-    @DeleteMapping(path="/{personId}/personalInfo/{infoId}")
+    @DeleteMapping(path="/{personId}/personalInfo/")
     public Boolean deletePersonalInfo1(@PathVariable Integer personId, @PathVariable Integer infoId) {
     	return infosvc.deleteInfo(personId, infoId);
     }
     
+    //below is not needed b/c personal info is created at time of victim's creation
 //    @PostMapping(path="/{personId}/personalInfo/")
 //    public PersonalInfo createPersonalInfo(@PathVariable Integer personId, @RequestBody PersonalInfo personalInfo) {
 //    	return infosvc.create(personId, personalInfo);
 //    }
     
-    //success
+    //FAIL
     @PutMapping(path="/{personId}/personalInfo/")
     public PersonalInfo updatePersonalInfo(@PathVariable Integer personId, @RequestBody PersonalInfo personalInfo ) {
-    	PersonalInfo infoToUpdate = infosvc.getInfo(personId);
-    	if (infoToUpdate != null) {
-    		personalInfo.setPerson(infoToUpdate.getPerson());
-    		personalInfo = infosvc.updateInfo(infoToUpdate.getId(), personalInfo);
-    		return personalInfo;
+    	Person personToUpdate = psvc.findById(personId);
+    	if (personToUpdate != null) {
+    		personToUpdate.setPersonalInfo(personalInfo);
+    		psvc.update(personId, personToUpdate);
+    		return personToUpdate.getPersonalInfo();
     	}
     	return null;
+    	//    	PersonalInfo infoToUpdate = infosvc.getInfo(personId);
+//    	if (infoToUpdate != null) {
+//    		personalInfo.setPerson(infoToUpdate.getPerson());
+//    		personalInfo = infosvc.updateInfo(infoToUpdate.getId(), personalInfo);
+//    		return personalInfo;
+//    	}
+//    	return null;
     }
     
   //PostMan success
@@ -160,5 +168,17 @@ public class PersonController {
 }
     
     
+
+
+
+
+
+
+
+
+
+
+
+
     
 
