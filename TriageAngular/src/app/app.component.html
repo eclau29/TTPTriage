@@ -20,14 +20,16 @@
     </mat-button-toggle-group>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="container text-center">
-      <h1>
-        {{ title }}
-      </h1>
-    </div>
-    <div class="container-fluid">
-      <button mat-raised-button (click)="sidenav.toggle()" color="primary">Menu</button>
-    </div>
+    <mat-toolbar color="primary">
+      <div class="container-fluid" float="left">
+        <button mat-raised-button (click)="sidenav.toggle()" color="accent">Navigaton</button>
+      </div>
+      <div class="container text-center" float="right">
+        <h1>
+          {{ title }}
+        </h1>
+      </div>
+    </mat-toolbar>
     <div class="container">
       <router-outlet></router-outlet>
     </div>
