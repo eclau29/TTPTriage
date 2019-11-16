@@ -44,7 +44,7 @@ public class CatastropheController {
 		return catsvc.listAllCatastrophes();
 	}
 	//success
-	@PostMapping(value = "/all")
+	@PostMapping(value = "/create")
 	public Catastrophe addCatastrophe(@RequestBody Catastrophe newCat) {
 		return catsvc.create(newCat);
 	}
