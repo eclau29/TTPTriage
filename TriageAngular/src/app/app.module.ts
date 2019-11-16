@@ -14,10 +14,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import {PortalModule} from '@angular/cdk/portal';
-import {ScrollingModule} from '@angular/cdk/scrolling';
+import { PortalModule } from '@angular/cdk/portal';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
-import { MatAutocompleteModule,
+import { HttpClientModule } from '@angular/common/http';
+import {
+  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
   MatButtonModule,
@@ -52,7 +54,8 @@ import { MatAutocompleteModule,
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
-  MatFormFieldModule } from '@angular/material/';
+  MatFormFieldModule
+} from '@angular/material/';
 import { MenuComponent } from './menu/menu.component';
 import { CatastropheComponent } from './catastrophe/catastrophe.component';
 
@@ -68,6 +71,7 @@ import { CatastropheComponent } from './catastrophe/catastrophe.component';
     CatastropheComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     QRCodeModule,
     GoogleMapsModule,

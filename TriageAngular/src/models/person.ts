@@ -1,5 +1,6 @@
 import { Vitals } from './vitals';
 import { Symptoms } from './symptoms';
+import { Catastrophe } from './catastrophe';
 export class Person {
   id: number;
   initalEval: Date;
@@ -9,6 +10,7 @@ export class Person {
   barcodeNum: string;
   evalLatitude: number;
   evalLongitude: number;
+  catastrophe: Catastrophe;
 
   constructor(
     id?: number,
@@ -18,7 +20,8 @@ export class Person {
     symptomsList?: Symptoms[],
     barcodeNum?: string,
     evalLatitude?: number,
-    evalLongitude?: number
+    evalLongitude?: number,
+    catastrophe?: Catastrophe
   ) {
     this.id = id;
     this.initalEval = initalEval;
@@ -28,5 +31,6 @@ export class Person {
     this.barcodeNum = barcodeNum;
     this.evalLatitude = evalLatitude;
     this.evalLongitude = evalLongitude;
+    this.catastrophe = catastrophe;
   }
 }

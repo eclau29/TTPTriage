@@ -16,13 +16,13 @@ export class CatastropheComponent implements OnInit {
   ngOnInit() {
   }
 
-  // addCatEvent() {
-  //   this.catService.createCat(this.cat).subscribe(
-  //     data => {
-  //       this.createdCat = data;
-  //     },
-  //     err => console.error(err)
-  //   );
-  // }
+  addCatEvent() {
+    this.catService.createCat(this.cat).subscribe(
+      data => {
+        this.createdCat = data;
+      },
+      err => console.error(err)
+    );
+  }
 
 }

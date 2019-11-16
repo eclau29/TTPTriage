@@ -9,6 +9,8 @@ export class Vitals {
   timestamp: Date;
   severity: Severity;
   person: Person;
+  latitude: number;
+  longitude: number;
 
   constructor(
     id?: number,
@@ -18,7 +20,9 @@ export class Vitals {
     pulseOx?: number,
     timestamp?: Date,
     severity?: Severity,
-    person?: Person
+    person?: Person,
+    latitude?: number,
+    longitude?: number
   ) {
     this.id = id;
     this.diastolicBloodPressure = diastolicBloodPressure;
@@ -28,5 +32,7 @@ export class Vitals {
     this.timestamp = timestamp;
     this.severity = severity;
     this.person = person;
+    this.latitude = latitude;
+    this.longitude = longitude;
   }
 }

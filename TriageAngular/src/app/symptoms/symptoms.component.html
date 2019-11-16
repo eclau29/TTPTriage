@@ -1,8 +1,20 @@
 <div class="mat-container">
     <h2>Symptoms</h2>
-    <img src="../../assets/human_both_sides.jpg" alt="front and back empty outline of human">
+    <!-- <img src="../../assets/human_both_sides.jpg" alt="front and back empty outline of human"> -->
+    <div class="mat-container">
+        <h3>Where are the injuries?</h3>
+    </div>
+    <div class="mat-container">
+        <mat-button-toggle value="head">Head</mat-button-toggle>
+        <mat-button-toggle value="leftUpperBody">Patient's Left, Upper Body</mat-button-toggle>
+        <mat-button-toggle value="rightUpperBody">Patient's Right, Upper Body</mat-button-toggle>
+        <mat-button-toggle value="leftLowerBody">Patient's Left, Lower Body</mat-button-toggle>
+        <mat-button-toggle value="rightLowerBody">Patient's Right, Lower Body</mat-button-toggle><br>
+    </div>
 </div>
 
-<button mat-raised-button routerLink="/vitals" color="accent" float="left">Back</button>
-<button mat-raised-button routerLink="/info" color="primary" float="right">Add Personal Info</button>
-<button mat-raised-button routerLink="/scanner" color="warn" float="right">Submit</button>
+<div class="container">
+    <button mat-raised-button routerLink="/vitals" color="accent" float="left">Back</button>
+    <button mat-raised-button routerLink="/info" color="primary" float="right">Add Personal Info</button>
+    <button mat-raised-button routerLink="/scanner" color="warn" float="right">Submit</button>
+</div>
