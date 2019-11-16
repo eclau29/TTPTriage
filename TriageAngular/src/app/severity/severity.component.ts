@@ -1,5 +1,7 @@
 import { Person } from './../../models/person';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-severity',
@@ -11,9 +13,13 @@ export class SeverityComponent implements OnInit {
   person: Person = new Person();
   center: google.maps.LatLngLiteral;
 
-  constructor() { }
+  state$: Observable<string>;
+
+  constructor(public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.person.barcodeNum = window.history.state.barcodeNum;
+    console.log(this.person);
   }
   getLatLong() {
     navigator.geolocation.getCurrentPosition(position => {

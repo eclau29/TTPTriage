@@ -44,7 +44,6 @@ export class ScannerComponent implements OnInit {
 
   goToSeverity() {
     if (this.qrResultString) {
-    // this.router.navigate(['/severity'], {state: {data: {barcodeNum: this.qrResultString}});
     this.router.navigateByUrl('/severity', { state: { barcodeNum: this.qrResultString } });
     }
   }

@@ -7,6 +7,7 @@ export class Person {
   gender: string;
   vitalsList: Vitals[];
   symptomsList: Symptoms[];
+  barcodeNum: string;
 
   constructor() {}
 }
