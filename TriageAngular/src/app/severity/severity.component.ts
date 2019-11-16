@@ -1,5 +1,5 @@
-import { Person } from './../../models/person';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-severity',
@@ -7,21 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./severity.component.css']
 })
 export class SeverityComponent implements OnInit {
-  // Class Fields
-  person: Person = new Person();
-  center: google.maps.LatLngLiteral;
 
-  constructor() { }
+  constructor(public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-  }
-  getLatLong() {
-    navigator.geolocation.getCurrentPosition(position => {
-      this.center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-      console.log(this.center);
-    });
   }
 }

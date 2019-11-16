@@ -9,11 +9,11 @@
         </mat-card-header>
         <mat-card-content>
           <nav>
-            <mat-button-toggle routerLink="/scanner">QR Scanner</mat-button-toggle><br>
-            <mat-button-toggle routerLink="/severity">Severity</mat-button-toggle><br>
-            <mat-button-toggle routerLink="/vitals">Vitals</mat-button-toggle><br>
-            <mat-button-toggle routerLink="/symptoms">Symptoms</mat-button-toggle><br>
-            <mat-button-toggle routerLink="/info">General Info</mat-button-toggle>
+            <mat-button-toggle routerLink="/scanner" (click)="sidenav.toggle()">QR Scanner</mat-button-toggle><br>
+            <mat-button-toggle routerLink="/severity" (click)="sidenav.toggle()">Severity</mat-button-toggle><br>
+            <mat-button-toggle routerLink="/vitals" (click)="sidenav.toggle()">Vitals</mat-button-toggle><br>
+            <mat-button-toggle routerLink="/symptoms" (click)="sidenav.toggle()">Symptoms</mat-button-toggle><br>
+            <mat-button-toggle routerLink="/info" (click)="sidenav.toggle()">General Info</mat-button-toggle>
           </nav>
         </mat-card-content>
       </mat-card>

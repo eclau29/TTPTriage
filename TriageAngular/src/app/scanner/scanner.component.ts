@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeFormat } from '@zxing/library';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Person } from './../../models/person';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-scanner',
@@ -8,7 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./scanner.component.css']
 })
 export class ScannerComponent implements OnInit {
+  // Class Fields
+  person: Person = new Person();
+  center: google.maps.LatLngLiteral;
+
+  state$: Observable<string>;
   qrResultString: string = null;
+
   allowedFormats = [
     BarcodeFormat.AZTEC,
     BarcodeFormat.CODABAR,
@@ -29,23 +38,35 @@ export class ScannerComponent implements OnInit {
     BarcodeFormat.UPC_EAN_EXTENSION
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  getLatLong() {
+    navigator.geolocation.getCurrentPosition(position => {
+      // this.person = {
+        this.person.evalLatitude = position.coords.latitude,
+        this.person.evalLongitude = position.coords.longitude,
+      // };
+      console.log(this.center);
+    });
   }
 
   onCodeResult(resultString: string) {
     this.qrResultString = resultString;
     console.log(this.qrResultString);
     if (this.qrResultString) {
+      this.person.barcodeNum = this.qrResultString;
+      this.getLatLong();
+      console.log(this.person);
       this.goToSeverity();
     }
   }
 
   goToSeverity() {
     if (this.qrResultString) {
-    // this.router.navigate(['/severity'], {state: {data: {barcodeNum: this.qrResultString}});
-    this.router.navigateByUrl('/severity', { state: { barcodeNum: this.qrResultString } });
+      this.router.navigateByUrl('/severity', { state: { barcodeNum: this.qrResultString } });
     }
   }
 }
