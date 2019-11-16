@@ -63,6 +63,7 @@ public class CatastropheController {
 	}
 	
 	@PostMapping(path="/{catId}/victims/")
+	//can I put multiple @RequestBody's as parameters?  ie @RB Symptoms, @RB Vitals, @RB PersonalInfo
   	public Person addVictim(@PathVariable int catId, @RequestBody Person victim) {
 		List<Symptoms> newSymptoms = victim.getSymptomsList();
 		List<Vitals> newVitals = victim.getVitalsList();
@@ -76,7 +77,6 @@ public class CatastropheController {
   		victim.setCatastrophe(cat);
   		victim.setSymptomsList(new ArrayList<Symptoms>());
   		victim.setVitalsList(new ArrayList<Vitals>());
-  		victim.setPersonalInfo(thisVictimsInfo);
   		Person newVictim = psvc.create(victim);
   		
   		for (Symptoms symptom : newSymptoms) {
