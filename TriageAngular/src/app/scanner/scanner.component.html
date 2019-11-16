@@ -3,7 +3,7 @@
 </div>
 
 <div>
-    <zxing-scanner [formats]="allowedFormats"></zxing-scanner>
+    <zxing-scanner [formats]="allowedFormats"(scanSuccess)="onCodeResult($event)"></zxing-scanner>
 </div>
 
 <button mat-raised-button routerLink="/severity" color="primary" float="left">Next</button>

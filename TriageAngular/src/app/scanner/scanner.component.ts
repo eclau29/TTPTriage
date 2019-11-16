@@ -7,6 +7,7 @@ import { BarcodeFormat } from '@zxing/library';
   styleUrls: ['./scanner.component.css']
 })
 export class ScannerComponent implements OnInit {
+  qrResultString: string = null;
 
   constructor() { }
 
@@ -33,5 +34,8 @@ export class ScannerComponent implements OnInit {
     BarcodeFormat.UPC_EAN_EXTENSION
   ];
 
-
+  onCodeResult(resultString: string) {
+    this.qrResultString = resultString;
+    console.log(this.qrResultString);
+  }
 }
