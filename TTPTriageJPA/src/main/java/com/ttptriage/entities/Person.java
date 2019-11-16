@@ -41,10 +41,10 @@ public class Person {
 	
 	private String gender;
 	
-	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST})
 	private List<Vitals> vitalsList;
 	
-	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST })
 	private List<Symptoms> symptomsList;
 	
 	@JsonIgnore

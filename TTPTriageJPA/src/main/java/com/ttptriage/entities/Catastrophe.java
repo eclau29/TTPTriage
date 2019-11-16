@@ -25,7 +25,7 @@ public class Catastrophe {
 	@Column(name = "cat_location")
 	private String catLocaton;
 	
-	@OneToMany(mappedBy = "catastrophe", cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "catastrophe", cascade = { CascadeType.PERSIST}, fetch = FetchType.EAGER)
 	private List<Person> victims;
 	
 	public Catastrophe() {
