@@ -1,5 +1,6 @@
 package com.ttptriage.resource;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ttptriage.entities.Catastrophe;
 import com.ttptriage.entities.Person;
+import com.ttptriage.entities.PersonalInfo;
+import com.ttptriage.entities.Symptoms;
+import com.ttptriage.entities.Vitals;
+import com.ttptriage.repository.PersonalInfoRepository;
 import com.ttptriage.service.CatastropheService;
 import com.ttptriage.service.PersonService;
+import com.ttptriage.service.PersonalInfoService;
 
 
 @RestController
@@ -24,6 +30,8 @@ public class CatastropheController {
 	private CatastropheService catsvc;
 	@Autowired
 	private PersonService psvc;
+	@Autowired
+	private PersonalInfoService pInfoSvc;
 	
 	//PostMan success
 	@GetMapping(value = "/all")
@@ -56,11 +64,38 @@ public class CatastropheController {
 	
 	@PostMapping(path="/{catId}/victims/")
   	public Person addVictim(@PathVariable int catId, @RequestBody Person victim) {
+		List<Symptoms> newSymptoms = victim.getSymptomsList();
+		List<Vitals> newVitals = victim.getVitalsList();
+		PersonalInfo thisVictimsInfo = victim.getPersonalInfo();
+		
+		System.err.println("catid: " + catId);
+		
   		Catastrophe cat = catsvc.findById(catId);
+  		System.err.println("victim before add: " + victim);
+  		
   		victim.setCatastrophe(cat);
-  		cat.getVictims().add(victim);
+  		victim.setSymptomsList(new ArrayList<Symptoms>());
+  		victim.setVitalsList(new ArrayList<Vitals>());
+  		victim.setPersonalInfo(thisVictimsInfo);
+  		Person newVictim = psvc.create(victim);
+  		
+  		for (Symptoms symptom : newSymptoms) {
+  			symptom.setPerson(newVictim);
+  			System.out.println(symptom.getPerson().getId());
+  		}
+  		
+  		for (Vitals vital : newVitals) {
+			vital.setPerson(newVictim);
+			
+		}
+  		
+  		newVictim.setSymptomsList(newSymptoms);
+  		newVictim.setVitalsList(newVitals);
+  		psvc.update(newVictim.getId(), newVictim);
+  		
+  		cat.getVictims().add(newVictim);
+  		System.err.println("victim after add: " + newVictim);
   		catsvc.update(catId, cat);
-//  		Person newVictim = psvc.create(victim);
   		return victim;
   	}
 	

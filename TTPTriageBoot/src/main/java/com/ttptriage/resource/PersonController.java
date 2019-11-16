@@ -113,10 +113,10 @@ public class PersonController {
     	return infosvc.deleteInfo(personId, infoId);
     }
     
-    @PostMapping(path="/{personId}/personalInfo/")
-    public PersonalInfo createPersonalInfo(@PathVariable Integer personId, @RequestBody PersonalInfo personalInfo) {
-    	return infosvc.create(personId, personalInfo);
-    }
+//    @PostMapping(path="/{personId}/personalInfo/")
+//    public PersonalInfo createPersonalInfo(@PathVariable Integer personId, @RequestBody PersonalInfo personalInfo) {
+//    	return infosvc.create(personId, personalInfo);
+//    }
     
     //success
     @PutMapping(path="/{personId}/personalInfo/")
@@ -150,9 +150,9 @@ public class PersonController {
     	return symsvc.updateOneSymptom(personId, symptomsId, newSymptoms);
     }
     
-    //success
+    
     @DeleteMapping(path="/{personId}/symptoms/{symptomsId}")
-    public Boolean deletePersonalInfo (@PathVariable Integer personId, @PathVariable Integer symptomsId) {
+    public Boolean deleteSymptoms (@PathVariable Integer personId, @PathVariable Integer symptomsId) {
     	return symsvc.deleteOneSymptom(personId, symptomsId);
     }
     

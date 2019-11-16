@@ -1,5 +1,6 @@
 package com.ttptriage.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +22,8 @@ public class Symptoms {
 	private String bodyPart;
 
 	private String injury;
-	@JsonIgnore
-	@ManyToOne
+	
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "person_id")
 	private Person person;
 	

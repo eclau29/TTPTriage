@@ -1,12 +1,12 @@
 package com.ttptriage.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ttptriage.entities.Person;
+import com.ttptriage.entities.PersonalInfo;
 import com.ttptriage.repository.PersonRepository;
 
 @Service
@@ -19,6 +19,8 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Autowired
 	private PersonRepository pRepo;
+	@Autowired
+	private PersonalInfoService pisvc;
 
 //    @Autowired
 //    public PersonService(@Qualifier("personDao") PersonDao personDao) {
@@ -34,7 +36,9 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Person create(Person person) {
-		return pRepo.saveAndFlush(person);
+		PersonalInfo personInfo = person.getPersonalInfo();
+		pisvc.create(person, personInfo);
+		return person;
 	}
 
 	@Override
@@ -54,6 +58,8 @@ public class PersonServiceImpl implements PersonService {
 			personToUpdate.setGender(updatedPerson.getGender());
 			personToUpdate.setLocation(updatedPerson.getLocation());
 			personToUpdate.setPersonalInfo(updatedPerson.getPersonalInfo());
+			personToUpdate.setSymptomsList(updatedPerson.getSymptomsList());
+			personToUpdate.setVitalsList(updatedPerson.getVitalsList());
 			
 			pRepo.saveAndFlush(personToUpdate);
 		}

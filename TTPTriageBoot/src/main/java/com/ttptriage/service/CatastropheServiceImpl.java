@@ -41,10 +41,17 @@ public class CatastropheServiceImpl implements CatastropheService {
 
 	@Override
 	public Catastrophe update(int catId, Catastrophe newCatInfo) {
+		//find catastrophe to update
+		//
+		System.err.println("catId in catsvc: " + catId);
+		System.err.println("newCatInfo in catsvc: " + newCatInfo);
 		Optional<Catastrophe> catToUpdateOpt = catrepo.findById(catId);
 		if (catToUpdateOpt.isPresent()) {
-			newCatInfo.setCatId(catId);
-			return catrepo.saveAndFlush(newCatInfo);
+			Catastrophe catToUpdate = catToUpdateOpt.get();
+			catToUpdate.setCatLocaton(newCatInfo.getCatLocaton());
+			catToUpdate.setCatName(newCatInfo.getCatName());
+			catToUpdate.setVictims(newCatInfo.getVictims());
+			return catrepo.saveAndFlush(catToUpdate);
 		}
 		return null;
 	}

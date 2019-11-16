@@ -2,6 +2,7 @@ package com.ttptriage.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class PersonalInfo {
 	@Column(name = "dob")
 	private Date dateOfBirth;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JsonIgnore
 	@JoinColumn(name = "person_id")
 	private Person person;

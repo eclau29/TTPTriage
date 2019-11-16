@@ -29,7 +29,7 @@ public class Person {
 	
 	private String location;
 	
-	@OneToOne(mappedBy = "person")
+	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
 	private PersonalInfo personalInfo;
 	
 	@Column(name = "gps_location")
@@ -48,9 +48,15 @@ public class Person {
 	private List<Symptoms> symptomsList;
 	
 	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
-	@JsonIgnore
 	@JoinColumn(name = "cat_id")
 	private Catastrophe catastrophe;
+
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", location=" + location + ", personalInfo=" + personalInfo + ", gpsLocation="
+				+ gpsLocation + ", initialEvalTime=" + initialEvalTime + ", gender=" + gender + ", catastrophe="
+				+ catastrophe + "]";
+	}
 
 	public Person() {
 	}
