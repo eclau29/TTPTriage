@@ -53,13 +53,18 @@ public class Vitals {
 	@JsonIgnore
 	@JoinColumn(name = "person_id")
 	private Person person;
+	
+	private double latitude;
+	
+	private double longitude;
+	
 
 	
 	public Vitals() {
 	}
 	
 
-	public Vitals(Integer id, Integer diastolicBloodPressure, Integer systolicBloodPressure, Integer pulse,
+	public Vitals(int id, Integer diastolicBloodPressure, Integer systolicBloodPressure, Integer pulse,
 			Integer respirationRate, Integer pulseOx, Date timestamp, Severity severity, Person person) {
 		this.id = id;
 		this.diastolicBloodPressure = diastolicBloodPressure;
@@ -72,11 +77,31 @@ public class Vitals {
 		this.person = person;
 	}
 
-	public Integer getId() {
+	public double getLatitude() {
+		return latitude;
+	}
+
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

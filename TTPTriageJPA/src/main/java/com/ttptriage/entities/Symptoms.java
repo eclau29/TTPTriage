@@ -1,5 +1,8 @@
 package com.ttptriage.entities;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,6 +35,10 @@ public class Symptoms {
 	@JoinColumn(name = "person_id")
 	private Person person;
 	
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date timestamp;
+	
 	public Symptoms() {
 		
 	}
@@ -37,6 +48,20 @@ public class Symptoms {
 		this.bodyPart = bodyPart;
 		this.injury = injury;
 		this.person = person;
+	}
+
+	@Override
+	public String toString() {
+		return "Symptoms [symptomsId=" + symptomsId + ", bodyPart=" + bodyPart + ", injury=" + injury + ", person="
+				+ person + ", timestamp=" + timestamp + "]";
+	}
+
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	public Integer getSymptomsId() {

@@ -21,6 +21,7 @@ public class SymptomsServiceImpl implements SymptomsService {
 	@Override
 	public Symptoms createOneSymptom(int personId, Symptoms symptom) {
 		Person currentPerson = prepo.findById(personId);
+		System.err.println("in create one sympton " + currentPerson);
 		if (currentPerson != null) {
 			symptom.setPerson(currentPerson);
 		}

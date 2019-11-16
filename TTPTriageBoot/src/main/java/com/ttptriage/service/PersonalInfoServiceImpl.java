@@ -29,6 +29,8 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 			person.setSymptomsList(new ArrayList<Symptoms>());
 			person.setVitalsList(new ArrayList<Vitals>());
 			System.err.println(person);
+//			Person managedPerson = prepo.saveAndFlush(person);
+//			System.err.println(managedPerson);
 			personalInfo.setPerson(person);
 			pirepo.saveAndFlush(personalInfo);
 //			for (Symptoms symptom : newSymptoms) {

@@ -79,7 +79,11 @@ public class CatastropheController {
   		Catastrophe cat = catsvc.findById(catId);
   		System.err.println("victim before add: " + victim);
   		
+  		// set catastrophe, eval lat/long from catastrophe
   		victim.setCatastrophe(cat);
+//  		victim.setEvalLatitude(cat.getCatLatitude());
+//  		victim.setEvalLongitude(cat.getCatLongitude());
+  		
   		victim.setSymptomsList(new ArrayList<Symptoms>());
   		victim.setVitalsList(new ArrayList<Vitals>());
   		Person newVictim = psvc.create(victim);

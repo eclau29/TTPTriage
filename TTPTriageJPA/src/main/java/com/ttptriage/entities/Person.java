@@ -1,6 +1,7 @@
 package com.ttptriage.entities;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -33,13 +34,13 @@ public class Person {
 	private PersonalInfo personalInfo;
 	
 	@CreationTimestamp //Creation of the Person is at the time of initial evaluation
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "initial_eval_time")
-	private Timestamp initialEvalTime;
+	private Date initialEvalTime;
 	
 	private String gender;
 	
-	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST})
-	
+//	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST})
 	@Column(name = "barcode_num")
 	private String barcodeNum;
 	
@@ -109,7 +110,7 @@ public class Person {
 		this.personalInfo = personalInfo;
 	}
 
-	public Timestamp getInitialEvalTime() {
+	public Date getInitialEvalTime() {
 		return initialEvalTime;
 	}
 

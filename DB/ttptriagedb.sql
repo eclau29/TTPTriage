@@ -21,7 +21,7 @@ USE `ttptriage` ;
 DROP TABLE IF EXISTS `catastrophe` ;
 
 CREATE TABLE IF NOT EXISTS `catastrophe` (
-  `cat_id` INT(11) NOT NULL,
+  `cat_id` INT(11) NOT NULL AUTO_INCREMENT,
   `cat_name` VARCHAR(45) NULL,
   `cat_latitude` DECIMAL(10,8) NOT NULL COMMENT 'Latitude location of catastophe',
   `cat_longitude` DECIMAL(11,8) NOT NULL COMMENT 'Longitude location of catastrophe',
@@ -35,9 +35,9 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `person` ;
 
 CREATE TABLE IF NOT EXISTS `person` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `location` VARCHAR(25) NOT NULL DEFAULT 'Ground Zero',
-  `initial_eval_time` VARCHAR(45) NULL,
+  `initial_eval_time` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `gender` VARCHAR(12) NULL,
   `cat_id` INT(11) NOT NULL COMMENT 'Ref: Catastrophe',
   `barcode_num` VARCHAR(200) NOT NULL COMMENT 'Number scanned in from barcode',
@@ -59,7 +59,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `vitals` ;
 
 CREATE TABLE IF NOT EXISTS `vitals` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `diastolic_bp` INT NULL COMMENT 'Diastolic blood pressure',
   `systolic_bp` INT NULL COMMENT 'Systolic blood pressure',
   `pulse` INT NULL,
@@ -67,6 +67,9 @@ CREATE TABLE IF NOT EXISTS `vitals` (
   `pulse_ox` INT NULL COMMENT 'Pulse oxygen level',
   `severity` ENUM('GREEN', 'YELLOW', 'RED', 'GRAY', 'BLACK') NULL COMMENT 'GREEN, YELLOW, RED, GRAY, BLACK',
   `person_id` INT NOT NULL COMMENT 'Ref: Person',
+  `latitude` DECIMAL(10,8) NOT NULL,
+  `longitude` DECIMAL(11,8) NOT NULL,
+  `timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_vitals_person1_idx` (`person_id` ASC),
   CONSTRAINT `fk_vitals_person1`
@@ -83,7 +86,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `personal_info` ;
 
 CREATE TABLE IF NOT EXISTS `personal_info` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `middle_name` VARCHAR(45) NULL,
@@ -105,10 +108,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `symptoms` ;
 
 CREATE TABLE IF NOT EXISTS `symptoms` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `body_part` VARCHAR(45) NOT NULL,
   `injury` VARCHAR(45) NOT NULL,
   `person_id` INT NOT NULL COMMENT 'Ref: Person',
+  `timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_symptoms_person1_idx` (`person_id` ASC),
   CONSTRAINT `fk_symptoms_person1`
@@ -129,3 +133,13 @@ GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'ttptri'@'localhost'
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `catastrophe`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ttptriage`;
+INSERT INTO `catastrophe` (`cat_id`, `cat_name`, `cat_latitude`, `cat_longitude`) VALUES (1, 'Denver', 38.00, -104.00);
+
+COMMIT;
+
