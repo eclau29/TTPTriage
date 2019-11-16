@@ -119,24 +119,10 @@ public class PersonController {
 //    	return infosvc.create(personId, personalInfo);
 //    }
     
-    //FAIL
+    //success
     @PutMapping(path="/{personId}/personalInfo/")
     public PersonalInfo updatePersonalInfo(@PathVariable Integer personId, @RequestBody PersonalInfo personalInfo ) {
-    	
-//    	Person personToUpdate = psvc.findById(personId);
-//    	if (personToUpdate != null) {
-//    		personToUpdate.setPersonalInfo(personalInfo);
-//    		psvc.update(personId, personToUpdate);
-//    		return personToUpdate.getPersonalInfo();
-//    	}
     	return infosvc.updateInfo(personId, personalInfo);
-    	//    	PersonalInfo infoToUpdate = infosvc.getInfo(personId);
-//    	if (infoToUpdate != null) {
-//    		personalInfo.setPerson(infoToUpdate.getPerson());
-//    		personalInfo = infosvc.updateInfo(infoToUpdate.getId(), personalInfo);
-//    		return personalInfo;
-//    	}
-//    	return null;
     }
     
   //PostMan success

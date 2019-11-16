@@ -62,12 +62,6 @@ public class Person {
 	@JoinColumn(name = "cat_id")
 	private Catastrophe catastrophe;
 
-	@Override
-	public String toString() {
-		return "Person [id=" + id + ", location=" + location + ", personalInfo=" + personalInfo + ", initialEvalTime="
-				+ initialEvalTime + ", gender=" + gender + ", barcodeNum=" + barcodeNum + ", evalLatitude="
-				+ evalLatitude + ", evalLongitude=" + evalLongitude + ", catastrophe=" + catastrophe + "]";
-	}
 
 	public Person() {
 	}
@@ -173,4 +167,6 @@ public class Person {
 	public void setCatastrophe(Catastrophe catastrophe) {
 		this.catastrophe = catastrophe;
 	}
+	
+	
 }

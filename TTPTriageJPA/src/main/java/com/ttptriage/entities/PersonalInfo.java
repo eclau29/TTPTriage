@@ -98,5 +98,4 @@ public class PersonalInfo {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
-
 }

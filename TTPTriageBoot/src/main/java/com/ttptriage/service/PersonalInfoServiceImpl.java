@@ -2,6 +2,7 @@ package com.ttptriage.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,8 +53,18 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 
 	@Override
 	public PersonalInfo updateInfo(int personId, PersonalInfo personalInfo) {
-		personalInfo.setPerson(prepo.findById(personId));
-		return pirepo.saveAndFlush(personalInfo);
+		Person personOpt = prepo.findById(personId);
+		Optional<PersonalInfo> infoOpt = pirepo.findById(personOpt.getPersonalInfo().getId());
+		if (infoOpt.isPresent()) {
+			PersonalInfo managedInfo = infoOpt.get();
+			managedInfo.setDateOfBirth(personalInfo.getDateOfBirth());
+			managedInfo.setFirstName(personalInfo.getFirstName());
+			managedInfo.setLastName(personalInfo.getLastName());
+			managedInfo.setMiddleName(personalInfo.getMiddleName());
+			managedInfo.setPerson(personOpt);
+			return pirepo.saveAndFlush(managedInfo);
+		}
+		return null;
 	}
 
 	@Override
