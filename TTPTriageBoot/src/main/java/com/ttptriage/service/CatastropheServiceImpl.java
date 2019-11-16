@@ -48,7 +48,8 @@ public class CatastropheServiceImpl implements CatastropheService {
 		Optional<Catastrophe> catToUpdateOpt = catrepo.findById(catId);
 		if (catToUpdateOpt.isPresent()) {
 			Catastrophe catToUpdate = catToUpdateOpt.get();
-			catToUpdate.setCatLocaton(newCatInfo.getCatLocaton());
+			catToUpdate.setCatLatitude(newCatInfo.getCatLatitude());
+			catToUpdate.setCatLongitude(newCatInfo.getCatLongitude());
 			catToUpdate.setCatName(newCatInfo.getCatName());
 			catToUpdate.setVictims(newCatInfo.getVictims());
 			return catrepo.saveAndFlush(catToUpdate);

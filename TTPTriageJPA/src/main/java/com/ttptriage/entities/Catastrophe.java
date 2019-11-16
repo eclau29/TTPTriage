@@ -21,9 +21,12 @@ public class Catastrophe {
 
 	@Column(name = "cat_name")
 	private String catName;
-
-	@Column(name = "cat_location")
-	private String catLocaton;
+	
+	@Column(name = "cat_latitude")
+	private Double catLatitude;
+	
+	@Column(name = "cat_longitude")
+	private Double catLongitude;
 	
 	@OneToMany(mappedBy = "catastrophe", cascade = { CascadeType.PERSIST}, fetch = FetchType.EAGER)
 	private List<Person> victims;
@@ -32,11 +35,12 @@ public class Catastrophe {
 		super();
 	}
 
-	public Catastrophe(Integer catId, String catName, String catLocaton) {
+	public Catastrophe(int catId, String catName, Double catLatitude, Double catLongitude) {
 		super();
 		this.catId = catId;
 		this.catName = catName;
-		this.catLocaton = catLocaton;
+		this.catLatitude = catLatitude;
+		this.catLongitude = catLongitude;
 	}
 
 	public Integer getCatId() {
@@ -55,12 +59,20 @@ public class Catastrophe {
 		this.catName = catName;
 	}
 
-	public String getCatLocaton() {
-		return catLocaton;
+	public Double getCatLatitude() {
+		return catLatitude;
 	}
 
-	public void setCatLocaton(String catLocaton) {
-		this.catLocaton = catLocaton;
+	public void setCatLatitude(Double catLatitude) {
+		this.catLatitude = catLatitude;
+	}
+
+	public Double getCatLongitude() {
+		return catLongitude;
+	}
+
+	public void setCatLongitude(Double catLongitude) {
+		this.catLongitude = catLongitude;
 	}
 
 	public List<Person> getVictims() {

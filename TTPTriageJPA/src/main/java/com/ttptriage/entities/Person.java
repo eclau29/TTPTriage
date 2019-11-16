@@ -29,11 +29,8 @@ public class Person {
 	
 	private String location;
 	
-	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "person", cascade = CascadeType.PERSIST)
 	private PersonalInfo personalInfo;
-	
-	@Column(name = "gps_location")
-	private String gpsLocation;
 	
 	@CreationTimestamp //Creation of the Person is at the time of initial evaluation
 	@Column(name = "initial_eval_time")
@@ -41,36 +38,51 @@ public class Person {
 	
 	private String gender;
 	
+
+	
+
+	@Column(name = "barcode_num")
+	private String barcodeNum;
+	
+	@Column(name = "eval_latitude")
+	private Double evalLatitude;
+	
+	@Column(name = "eval_longitude")
+	private Double evalLongitude;
+	
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST})
+
 	private List<Vitals> vitalsList;
 	
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST })
 	private List<Symptoms> symptomsList;
 	
 	@JsonIgnore
-	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@ManyToOne( cascade = { CascadeType.PERSIST })
 	@JoinColumn(name = "cat_id")
 	private Catastrophe catastrophe;
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", location=" + location + ", personalInfo=" + personalInfo + ", gpsLocation="
-				+ gpsLocation + ", initialEvalTime=" + initialEvalTime + ", gender=" + gender + ", catastrophe="
-				+ catastrophe + "]";
+		return "Person [id=" + id + ", location=" + location + ", personalInfo=" + personalInfo + ", initialEvalTime="
+				+ initialEvalTime + ", gender=" + gender + ", barcodeNum=" + barcodeNum + ", evalLatitude="
+				+ evalLatitude + ", evalLongitude=" + evalLongitude + ", catastrophe=" + catastrophe + "]";
 	}
 
 	public Person() {
 	}
 
-	public Person(Integer id, String location, 
-			String gpsLocation, Timestamp initialEvalTime,
-			String gender, PersonalInfo personalInfo, Catastrophe catastrophe) {
+	public Person(int id, String location, PersonalInfo personalInfo, Timestamp initialEvalTime, String gender,
+			String barcodeNum, Double evalLatitude, Double evalLongitude, Catastrophe catastrophe) {
+		super();
 		this.id = id;
 		this.location = location;
-		this.gpsLocation = gpsLocation;
+		this.personalInfo = personalInfo;
 		this.initialEvalTime = initialEvalTime;
 		this.gender = gender;
-		this.personalInfo = personalInfo;
+		this.barcodeNum = barcodeNum;
+		this.evalLatitude = evalLatitude;
+		this.evalLongitude = evalLongitude;
 		this.catastrophe = catastrophe;
 	}
 
@@ -98,14 +110,6 @@ public class Person {
 		this.personalInfo = personalInfo;
 	}
 
-	public String getGpsLocation() {
-		return gpsLocation;
-	}
-
-	public void setGpsLocation(String gpsLocation) {
-		this.gpsLocation = gpsLocation;
-	}
-
 	public Timestamp getInitialEvalTime() {
 		return initialEvalTime;
 	}
@@ -120,6 +124,30 @@ public class Person {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getBarcodeNum() {
+		return barcodeNum;
+	}
+
+	public void setBarcodeNum(String barcodeNum) {
+		this.barcodeNum = barcodeNum;
+	}
+
+	public Double getEvalLatitude() {
+		return evalLatitude;
+	}
+
+	public void setEvalLatitude(Double evalLatitude) {
+		this.evalLatitude = evalLatitude;
+	}
+
+	public Double getEvalLongitude() {
+		return evalLongitude;
+	}
+
+	public void setEvalLongitude(Double evalLongitude) {
+		this.evalLongitude = evalLongitude;
 	}
 
 	public List<Vitals> getVitalsList() {
