@@ -49,7 +49,7 @@ public class Vitals {
 	@Enumerated(EnumType.STRING)
 	private Severity severity;
 	
-	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@ManyToOne( cascade = { CascadeType.PERSIST})
 	@JsonIgnore
 	@JoinColumn(name = "person_id")
 	private Person person;

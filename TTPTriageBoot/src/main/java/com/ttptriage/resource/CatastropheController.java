@@ -43,7 +43,7 @@ public class CatastropheController {
 	public List<Catastrophe> getAllCatastrophes(){
 		return catsvc.listAllCatastrophes();
 	}
-	
+	//success
 	@PostMapping(value = "/all")
 	public Catastrophe addCatastrophe(@RequestBody Catastrophe newCat) {
 		return catsvc.create(newCat);
@@ -67,6 +67,7 @@ public class CatastropheController {
 		return catsvc.findAllPeopleByCatastropheId(catastropheId);
 	}
 	
+	//success
 	@PostMapping(path="/{catId}/victims/")
   	public Person addVictim(@PathVariable int catId, @RequestBody Person victim) {
 		List<Symptoms> newSymptoms = victim.getSymptomsList();
