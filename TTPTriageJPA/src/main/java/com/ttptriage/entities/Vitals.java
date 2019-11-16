@@ -57,6 +57,7 @@ public class Vitals {
 	
 	public Vitals() {
 	}
+	
 
 	public Vitals(Integer id, Integer diastolicBloodPressure, Integer systolicBloodPressure, Integer pulse,
 			Integer respirationRate, Integer pulseOx, Date timestamp, Severity severity, Person person) {
