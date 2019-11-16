@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeFormat } from '@zxing/library';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scanner',
@@ -8,13 +9,7 @@ import { BarcodeFormat } from '@zxing/library';
 })
 export class ScannerComponent implements OnInit {
   qrResultString: string = null;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  allowedFormats = [ 
+  allowedFormats = [
     BarcodeFormat.AZTEC,
     BarcodeFormat.CODABAR,
     BarcodeFormat.CODE_128,
@@ -25,8 +20,8 @@ export class ScannerComponent implements OnInit {
     BarcodeFormat.EAN_13,
     BarcodeFormat.ITF,
     BarcodeFormat.MAXICODE,
-    BarcodeFormat.PDF_417, 
-    BarcodeFormat.QR_CODE, 
+    BarcodeFormat.PDF_417,
+    BarcodeFormat.QR_CODE,
     BarcodeFormat.RSS_14,
     BarcodeFormat.RSS_EXPANDED,
     BarcodeFormat.UPC_A,
@@ -34,8 +29,23 @@ export class ScannerComponent implements OnInit {
     BarcodeFormat.UPC_EAN_EXTENSION
   ];
 
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+  }
+
   onCodeResult(resultString: string) {
     this.qrResultString = resultString;
     console.log(this.qrResultString);
+    if (this.qrResultString) {
+      this.goToSeverity();
+    }
+  }
+
+  goToSeverity() {
+    if (this.qrResultString) {
+    // this.router.navigate(['/severity'], {state: {data: {barcodeNum: this.qrResultString}});
+    this.router.navigateByUrl('/severity', { state: { barcodeNum: this.qrResultString } });
+    }
   }
 }
