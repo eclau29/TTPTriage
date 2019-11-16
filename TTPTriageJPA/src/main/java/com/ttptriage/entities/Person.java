@@ -29,7 +29,7 @@ public class Person {
 	
 	private String location;
 	
-	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "person", cascade = CascadeType.PERSIST)
 	private PersonalInfo personalInfo;
 	
 	@CreationTimestamp //Creation of the Person is at the time of initial evaluation
@@ -38,9 +38,8 @@ public class Person {
 	
 	private String gender;
 	
-<<<<<<< HEAD
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST})
-=======
+	
 	@Column(name = "barcode_num")
 	private String barcodeNum;
 	
@@ -50,15 +49,15 @@ public class Person {
 	@Column(name = "eval_longitude")
 	private Double evalLongitude;
 	
-	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
->>>>>>> df37188120b15e221db4af1b1ea269ae3d483d56
+	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST})
+
 	private List<Vitals> vitalsList;
 	
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST })
 	private List<Symptoms> symptomsList;
 	
 	@JsonIgnore
-	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@ManyToOne( cascade = { CascadeType.PERSIST })
 	@JoinColumn(name = "cat_id")
 	private Catastrophe catastrophe;
 
