@@ -16,7 +16,6 @@ INDEX VERSION 1.131+/Users/samajanik/TechToProtect/TTPTriage/.metadata/.plugins/
 1988287923.index
 4044913235.index
 3383010005.index
-3419176128.index
 2932486612.index
 3991709844.index
 2931078286.index
@@ -40,7 +39,6 @@ INDEX VERSION 1.131+/Users/samajanik/TechToProtect/TTPTriage/.metadata/.plugins/
 1198902844.index
 2236031399.index
 3937202171.index
-683559593.index
 1808463324.index
 3701249895.index
 1958967468.index
