@@ -3,6 +3,7 @@ import { Catastrophe } from './../models/catastrophe';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class CatastropheService {
 
   // SERVICE FIELDS
   private baseUrl = 'http://localhost:8090/';
-  private url = this.baseUrl + 'api/catastrophe/';
+  private url = environment.baseUrl + 'api/catastrophe';
+  // private url = this.baseUrl + 'api/catastrophe/';
 
   // SERVICE METHODS
   index() {
