@@ -11,9 +11,10 @@ import { environment } from '../environments/environment';
 export class CatastropheService {
 
   // SERVICE FIELDS
-  private baseUrl = 'http://localhost:8090/';
-  private url = environment.baseUrl + 'api/catastrophe';
+  // private baseUrl = 'http://localhost:8090/';
+  // private baseUrl = 'http://ttptriage.com/';
   // private url = this.baseUrl + 'api/catastrophe/';
+  private url = environment.baseUrl + 'api/catastrophe';
 
   // SERVICE METHODS
   index() {
